@@ -15,7 +15,7 @@ class CreateMstHospitalTable extends Migration
     {
         Schema::create('mst_hospital', function (Blueprint $table) {
             $table->id();
-            $table->morphs('code')->nullable();
+            $table->string('code')->nullable();
             $table->string('name')->nullable();
             $table->string('color')->nullable();
 

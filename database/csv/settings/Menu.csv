@@ -1,0 +1,6 @@
+id;title;icon;url;is_parent;is_login;is_shown;main_menu_id;order_no
+1;Rumah Sakit;;/master/hospital;0;1;1;2;1
+2;Cara Kunjung;;/master/visit-method;0;1;1;2;2
+3;Tindakan;;/master/action;0;1;1;2;3
+4;Jaminan;;/master/assurance;0;1;1;2;4
+5;Profil;;/setting/profile;0;1;1;3;5
