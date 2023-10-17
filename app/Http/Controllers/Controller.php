@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Settings\{
+    Attributes,
     MainMenu,
     Menu,
 };
@@ -23,6 +24,7 @@ class Controller extends BaseController
     public function __construct()
     {
         // Global Variable Setting
+        $this->attributes               = new Attributes();
         $this->main_menu                = new MainMenu();
         $this->menu                     = new Menu();
 

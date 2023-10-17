@@ -22,15 +22,33 @@ class HospitalController extends Controller
         return view('masters.hospital.index', $data);
     }
 
+    public function create()
+    {
+        $data = [
+            'c_menu'        => $this->menu->select('id', 'title', 'url')->where('url', $this->path)->first(),
+        ];
+        // $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
+        //     ->where('role', session()->get('srole'))->where('menu_id', $data['c_menu']->id)->first();
+        // if ($data['access']->view == 0 || $data['access']->edit == 0) abort(403);
+        
+        return view('masters.hospital.create', $data);
+    }
+
     public function store(Request $request)
     {
-        $input = $request->all();
+        $validate = $request->validate([
+            'name'          => 'required',
+            'color'         => 'required',
+        ]);
 
         $data = [
-            'name'          => $input['name'],
+            'code'          => $request->code,
+            'name'          => $request->name,
+            'color'         => $request->color,
             'created_at'    => now(),
             'created_by'    => session()->get('sname').' ('.session()->get('srole').')',
         ];
+        dd($data);
 
         $this->hospital->insert($data);
 
@@ -48,7 +66,7 @@ class HospitalController extends Controller
             ->where('role', session()->get('srole'))->where('menu_id', $data['c_menu']->id)->first();
         if ($data['access']->view == 0 || $data['access']->detail == 0) abort(403);
         
-        return view('admin.masters.hospital.index', $data);
+        return view('masters.hospital.index', $data);
     }
 
     public function edit($id)
@@ -62,7 +80,7 @@ class HospitalController extends Controller
             ->where('role', session()->get('srole'))->where('menu_id', $data['c_menu']->id)->first();
         if ($data['access']->view == 0 || $data['access']->edit == 0) abort(403);
         
-        return view('admin.masters.hospital.index', $data);
+        return view('masters.hospital.index', $data);
     }
 
     public function update(Request $request, $id)

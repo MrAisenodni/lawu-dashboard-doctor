@@ -53,6 +53,19 @@
         </li>
     </ol>
 
+    @if (session('status'))
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-dismissible bg-success text-white border-0 fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Sukses - </strong> {{ session('status') }}
+                </div>
+            </div>
+        </div>
+    @endif 
+
     <div class="row">
         <div class="col-lg-8">
             <h2>Daftar {{ $c_menu->title }}</h2>
@@ -62,28 +75,28 @@
         </div>
     </div>
 
-            <table class="table table-bordered datatable" id="table-4">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Kode</th>
-                        <th>{{ $c_menu->title }}</th>
-                        <th>Warna</th>
-                        <th>Aksi</th>
+    <table class="table table-bordered datatable" id="table-4">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Kode</th>
+                <th>{{ $c_menu->title }}</th>
+                <th>Warna</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if ($data)
+                @foreach ($data as $item)
+                    <tr class="odd gradeX">
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item->code }}</td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->color }}</td>
+                        <td>{{ $item->name }}</td>
                     </tr>
-                </thead>
-                <tbody>
-                    @if ($data)
-                        @foreach ($data as $item)
-                            <tr class="odd gradeX">
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->code }}</td>
-                                <td>{{ $item->name }}</td>
-                                <td>{{ $item->color }}</td>
-                                <td>{{ $item->name }}</td>
-                            </tr>
-                        @endforeach
-                    @endif
-                </tbody>
-            </table>
+                @endforeach
+            @endif
+        </tbody>
+    </table>
 @endsection

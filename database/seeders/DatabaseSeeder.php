@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             // Setting Seeders
             Settings\MainMenuSeeder::class,
             Settings\MenuSeeder::class,
+            Settings\AttributesSeeder::class,
         ]);
     }
 }
