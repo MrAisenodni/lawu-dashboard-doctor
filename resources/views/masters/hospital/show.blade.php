@@ -26,7 +26,7 @@
 
     <div class="row">
         <div class="col-lg-12 col-xs-12">
-            <h2>Tambah {{ $c_menu->title }}</h2>
+            <h2>Detail {{ $c_menu->title }}</h2>
         </div>
     </div>
 
@@ -37,7 +37,7 @@
             
                 <div class="panel-heading">
                     <div class="panel-title">
-                        Tambah {{ $c_menu->title }}
+                        Detail {{ $c_menu->title }}
                     </div>
                     
                     <div class="panel-options">
@@ -48,19 +48,19 @@
                 
                 <div class="panel-body">
                     
-                    <form role="form" method="POST" action="{{ $c_menu->url }}" class="form-horizontal form-groups-bordered">
+                    <form role="form" class="form-horizontal form-groups-bordered">
                         @csrf
                         <div class="row form-group pt-0">
                             <div class="col-lg-3 col-xs-12 mb-5">
                                 <label for="code" class="control-label">Kode</label>
-                                <input type="text" class="form-control @error('code') validate-has-error @enderror" id="code" name="code" value="{{ old('code') }}">
+                                <input type="text" class="form-control @error('code') validate-has-error @enderror" id="code" name="code" value="{{ old('code', $detail->code) }}" disabled>
                                 @error('code')
                                     <span id="name-error" class="validate-has-error">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-lg-3 col-xs-12 mb-5">
                                 <label for="name" class="control-label">{{ $c_menu->title }}</label>
-                                <input type="text" class="form-control @error('name') validate-has-error @enderror" id="name" name="name" value="{{ old('name') }}">
+                                <input type="text" class="form-control @error('name') validate-has-error @enderror" id="name" name="name" value="{{ old('name', $detail->name) }}" disabled>
                                 @error('name')
                                     <span id="name-error" class="validate-has-error">{{ $message }}</span>
                                 @enderror
@@ -68,7 +68,7 @@
                             <div class="col-lg-3 col-xs-12 mb-5">
                                 <label for="color" class="control-label">Warna</label>
                                 <div class="input-group @error('color') validate-has-error @enderror">
-                                    <input id="color" name="color" type="text" class="form-control colorpicker" data-format="hex" value="{{ old('color', '#000') }}" />
+                                    <input id="color" name="color" type="text" class="form-control colorpicker" data-format="hex" value="{{ old('color', $detail->color) }}" disabled />
                                     <div class="input-group-addon">
                                         <i class="color-preview"></i>
                                     </div>
@@ -80,7 +80,7 @@
                             <div class="col-lg-3 col-xs-12 mb-5">
                                 <label for="background" class="control-label">Warna Latar</label>
                                 <div class="input-group @error('background') validate-has-error @enderror">
-                                    <input id="background" name="background" type="text" class="form-control colorpicker" data-format="hex" value="{{ old('background', '#fff') }}" />
+                                    <input id="background" name="background" type="text" class="form-control colorpicker" data-format="hex" value="{{ old('background', $detail->background) }}" disabled />
                                     <div class="input-group-addon">
                                         <i class="color-preview"></i>
                                     </div>
@@ -93,7 +93,6 @@
                         <div class="row form-group">
                             <div class="col-lg-12 text-right">
                                 <a href="{{ $c_menu->url }}" class="btn btn-warning">KEMBALI</a>
-                                <button type="submit" class="btn btn-success">SIMPAN</button>
                             </div>
                         </div>
                     </form>

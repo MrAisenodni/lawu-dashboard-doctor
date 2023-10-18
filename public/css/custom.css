@@ -155,3 +155,188 @@ body {
 .ml-5 {
     margin-left: 10px !important;
 }
+
+/* Display Setting */
+.d-inline {
+    display: inline !important
+}
+
+.d-inline-block {
+    display: inline-block !important
+}
+
+.d-block {
+    display: block !important
+}
+
+.d-table {
+    display: table !important
+}
+
+.d-table-row {
+    display: table-row !important
+}
+
+.d-table-cell {
+	display: table-cell !important
+}
+
+.d-flex {
+	display: flex !important
+}
+
+.d-inline-flex {
+	display: inline-flex !important
+}
+
+@media (min-width:374px) {
+	.d-xs-md-none {
+		display: none !important
+	}
+
+	.d-xs-md-inline {
+		display: inline !important
+	}
+
+	.d-xs-md-inline-block {
+		display: inline-block !important
+	}
+
+	.d-xs-md-block {
+		display: block !important
+	}
+
+	.d-xs-md-table {
+		display: table !important
+	}
+
+	.d-xs-md-table-row {
+		display: table-row !important
+	}
+
+	.d-xs-md-table-cell {
+		display: table-cell !important
+	}
+
+	.d-xs-md-flex {
+		display: flex !important
+	}
+
+	.d-xs-md-inline-flex {
+		display: inline-flex !important
+	}
+}
+
+@media (min-width:413px) {
+	.d-xs-plus-none {
+		display: none !important
+	}
+
+	.d-xs-plus-inline {
+		display: inline !important
+	}
+
+	.d-xs-plus-inline-block {
+		display: inline-block !important
+	}
+
+	.d-xs-plus-block {
+		display: block !important
+	}
+
+	.d-xs-plus-table {
+		display: table !important
+	}
+
+	.d-xs-plus-table-row {
+		display: table-row !important
+	}
+
+	.d-xs-plus-table-cell {
+		display: table-cell !important
+	}
+
+	.d-xs-plus-flex {
+		display: flex !important
+	}
+
+	.d-xs-plus-inline-flex {
+		display: inline-flex !important
+	}
+}
+
+@media (min-width:576px) {
+	.d-sm-none {
+		display: none !important
+	}
+
+	.d-sm-inline {
+		display: inline !important
+	}
+
+	.d-sm-inline-block {
+		display: inline-block !important
+	}
+
+	.d-sm-block {
+		display: block !important
+	}
+
+	.d-sm-table {
+		display: table !important
+	}
+
+	.d-sm-table-row {
+		display: table-row !important
+	}
+
+	.d-sm-table-cell {
+		display: table-cell !important
+	}
+
+	.d-sm-flex {
+		display: flex !important
+	}
+
+	.d-sm-inline-flex {
+		display: inline-flex !important
+	}
+}
+
+@media (min-width:768px) {
+	.d-md-none {
+		display: none !important
+	}
+
+	.d-md-inline {
+		display: inline !important
+	}
+
+	.d-md-inline-block {
+		display: inline-block !important
+	}
+
+	.d-md-block {
+		display: block !important
+	}
+
+	.d-md-table {
+		display: table !important
+	}
+
+	.d-md-table-row {
+		display: table-row !important
+	}
+
+	.d-md-table-cell {
+		display: table-cell !important
+	}
+
+	.d-md-flex {
+		display: flex !important
+	}
+
+	.d-md-inline-flex {
+		display: inline-flex !important
+	}
+}

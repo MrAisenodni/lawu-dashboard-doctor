@@ -15,7 +15,7 @@ class HospitalSeeder extends CsvSeeder
         $this->defaults = [
             'created_by'    => 'Migrasi'
         ];
-        $this->mapping = ['code', 'name', 'color'];
+        $this->mapping = ['code', 'name', 'background', 'color'];
     }
 
     public function run()
