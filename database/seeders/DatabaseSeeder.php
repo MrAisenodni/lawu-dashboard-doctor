@@ -21,9 +21,11 @@ class DatabaseSeeder extends Seeder
             Masters\VisitMethodSeeder::class,
 
             // Setting Seeders
+            Settings\AttributesSeeder::class,
+            Settings\GroupMenuSeeder::class,
             Settings\MainMenuSeeder::class,
             Settings\MenuSeeder::class,
-            Settings\AttributesSeeder::class,
+            Settings\RoleSeeder::class,
         ]);
     }
 }

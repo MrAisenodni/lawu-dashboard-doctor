@@ -9,6 +9,11 @@ use App\Http\Controllers\Masters\{
     VisitMethodController,
 };
 
+use App\Http\Controllers\Settings\{
+    GroupMenuController,
+    RoleController,
+};
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +34,7 @@ Route::resource('/master/action', ActionController::class);
 Route::resource('/master/assurance', AssuranceController::class);
 Route::resource('/master/hospital', HospitalController::class);
 Route::resource('/master/visit-method', VisitMethodController::class);
+
+// Settings Routes
+Route::resource('/setting/group-menu', GroupMenuController::class);
+Route::resource('/setting/role', RoleController::class);
