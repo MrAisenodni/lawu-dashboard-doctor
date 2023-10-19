@@ -15,7 +15,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             // Master Seeders
+            Masters\ActionSeeder::class,
+            Masters\AssuranceSeeder::class,
             Masters\HospitalSeeder::class,
+            Masters\VisitMethodSeeder::class,
 
             // Setting Seeders
             Settings\MainMenuSeeder::class,

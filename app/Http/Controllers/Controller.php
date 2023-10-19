@@ -9,7 +9,10 @@ use App\Models\Settings\{
 };
 
 use App\Models\Masters\{
+    Action,
+    Assurance,
     Hospital,
+    VisitMethod,
 };
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -29,6 +32,9 @@ class Controller extends BaseController
         $this->menu                     = new Menu();
 
         // Global Variable Master
+        $this->action                   = new Action();
+        $this->assurance                = new Assurance();
         $this->hospital                 = new Hospital();
+        $this->visit_method             = new VisitMethod();
     }
 }

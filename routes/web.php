@@ -3,7 +3,10 @@
 use App\Http\Controllers\PageController;
 
 use App\Http\Controllers\Masters\{
+    ActionController,
+    AssuranceController,
     HospitalController,
+    VisitMethodController,
 };
 
 use Illuminate\Support\Facades\Route;
@@ -22,4 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'index']);
 
 // Master Routes
+Route::resource('/master/action', ActionController::class);
+Route::resource('/master/assurance', AssuranceController::class);
 Route::resource('/master/hospital', HospitalController::class);
+Route::resource('/master/visit-method', VisitMethodController::class);

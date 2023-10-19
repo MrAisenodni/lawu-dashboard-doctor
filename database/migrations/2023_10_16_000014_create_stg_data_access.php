@@ -4,22 +4,18 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMstAssuranceTable extends Migration
+class CreateStgDataAccess extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('mst_assurance', function (Blueprint $table) {
+        Schema::create('stg_data_access', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->nullable();
-            $table->string('name');
-            $table->string('background')->nullable();
-            $table->string('color')->nullable();
-
+            
+            $table->unsignedInteger('role_id'); // Join ke Tabel stg_role
+            $table->string('title', 100);
+            $table->string('table_name', 100)->nullable();
+            $table->text('condition')->nullable();
+                    
             // Struktur Baku
             $table->boolean('disabled')->default(0);
             $table->dateTime('created_at');
@@ -31,13 +27,8 @@ class CreateMstAssuranceTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('mst_assurance');
+        Schema::dropIfExists('stg_data_access');
     }
 }

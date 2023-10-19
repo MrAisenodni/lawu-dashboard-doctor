@@ -4,21 +4,13 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMstAssuranceTable extends Migration
+class CreateStgGroupMenu extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('mst_assurance', function (Blueprint $table) {
+        Schema::create('stg_group_menu', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->nullable();
             $table->string('name');
-            $table->string('background')->nullable();
-            $table->string('color')->nullable();
 
             // Struktur Baku
             $table->boolean('disabled')->default(0);
@@ -31,13 +23,8 @@ class CreateMstAssuranceTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('mst_assurance');
+        Schema::dropIfExists('stg_group_menu');
     }
 }

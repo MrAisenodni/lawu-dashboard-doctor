@@ -16,7 +16,8 @@ class CreateMstActionTable extends Migration
         Schema::create('mst_action', function (Blueprint $table) {
             $table->id();
             $table->string('code')->nullable();
-            $table->string('name')->nullable();
+            $table->string('name');
+            $table->string('background')->nullable();
             $table->string('color')->nullable();
 
             // Struktur Baku
