@@ -8,9 +8,9 @@
         <meta name="description" content="Neon Admin Panel" />
         <meta name="author" content="" />
 
-        <link rel="icon" href="{{ asset('/images/favicon.ico') }}">
+        <link rel="icon" href="{{ asset($provider->provider_logo) }}">
 
-        <title>@yield('title') | Dashboard Doctor</title>
+        <title>@yield('title') | {{ $provider->provider_name }}</title>
 
         <link rel="stylesheet" href="{{ asset('/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/font-icons/entypo/css/entypo.css') }}">

@@ -13,7 +13,8 @@ class RoleSeeder extends CsvSeeder
         $this->file = '/database/csv/settings/Role.csv';
         $this->tablename = 'stg_role';
         $this->defaults = [
-            'created_by'    => 'Migrasi'
+            'created_by'    => 'Migrasi',
+            'created_at'    => now(),
         ];
         $this->mapping = ['name'];
     }

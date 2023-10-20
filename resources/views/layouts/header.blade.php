@@ -9,8 +9,8 @@
             <li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
 
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="{{ asset('/images/thumb-1@2x.png') }}" alt="" class="img-circle" width="44" />
-                    John Henderson
+                    <img src="@if (session()->get('spicture')) {{ asset(session()->get('spicture')) }} @else {{ asset('thumb-1.png') }} @endif" alt="" class="img-circle" width="44" />
+                    {{ session()->get('sname') }}
                 </a>
 
                 <ul class="dropdown-menu">
@@ -20,30 +20,9 @@
 
                     <!-- Profile sub-links -->
                     <li>
-                        <a href="extra-timeline.html">
+                        <a href="/profil">
                             <i class="entypo-user"></i>
-                            Edit Profile
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="mailbox.html">
-                            <i class="entypo-mail"></i>
-                            Inbox
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="extra-calendar.html">
-                            <i class="entypo-calendar"></i>
-                            Calendar
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="entypo-clipboard"></i>
-                            Tasks
+                            Ubah Profil
                         </a>
                     </li>
                 </ul>
@@ -62,8 +41,8 @@
             <li class="sep"></li>
 
             <li>
-                <a href="extra-login.html">
-                    Log Out <i class="entypo-logout right"></i>
+                <a href="/logout">
+                    Keluar <i class="entypo-logout right"></i>
                 </a>
             </li>
         </ul>

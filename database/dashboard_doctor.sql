@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Okt 2023 pada 16.13
+-- Waktu pembuatan: 19 Okt 2023 pada 16.48
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.1.12
 
@@ -66,7 +66,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2023_10_16_000006_create_stg_menu', 1),
 (11, '2023_10_16_000007_create_mst_user', 1),
 (12, '2023_10_16_000008_create_stg_login', 1),
-(13, '2023_10_16_000009_create_stg_attributes', 1);
+(13, '2023_10_16_000009_create_stg_attributes', 1),
+(14, '2023_10_16_000010_create_stg_role', 1),
+(15, '2023_10_16_000011_create_stg_group_menu', 1),
+(16, '2023_10_16_000012_create_stg_provider', 1),
+(17, '2023_10_16_000013_create_stg_menu_access', 1),
+(18, '2023_10_16_000014_create_stg_data_access', 1);
 
 -- --------------------------------------------------------
 
@@ -94,12 +99,12 @@ CREATE TABLE `mst_action` (
 --
 
 INSERT INTO `mst_action` (`id`, `code`, `name`, `background`, `color`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'RJ', 'Rawat Jalan', '#000', '#fff', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(2, 'RI', 'Rawat Inap', '#000', '#fff', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(3, 'GD', 'Gawat Darurat', '#000', '#fff', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(4, 'PR', 'Radiologi', '#000', '#fff', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(5, 'PL', 'Laboratorium', '#000', '#fff', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(6, 'OK', 'Kamar Bedah', '#000', '#fff', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL);
+(1, 'RJ', 'Rawat Jalan', '#000', '#fff', 0, '2023-10-19 21:47:28', 'Migrasi', '2023-10-19 21:47:28', NULL, NULL, NULL),
+(2, 'RI', 'Rawat Inap', '#000', '#fff', 0, '2023-10-19 21:47:28', 'Migrasi', '2023-10-19 21:47:28', NULL, NULL, NULL),
+(3, 'GD', 'Gawat Darurat', '#000', '#fff', 0, '2023-10-19 21:47:28', 'Migrasi', '2023-10-19 21:47:28', NULL, NULL, NULL),
+(4, 'PR', 'Radiologi', '#000', '#fff', 0, '2023-10-19 21:47:28', 'Migrasi', '2023-10-19 21:47:28', NULL, NULL, NULL),
+(5, 'PL', 'Laboratorium', '#000', '#fff', 0, '2023-10-19 21:47:28', 'Migrasi', '2023-10-19 21:47:28', NULL, NULL, NULL),
+(6, 'OK', 'Kamar Bedah', '#000', '#fff', 0, '2023-10-19 21:47:28', 'Migrasi', '2023-10-19 21:47:28', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -127,9 +132,9 @@ CREATE TABLE `mst_assurance` (
 --
 
 INSERT INTO `mst_assurance` (`id`, `code`, `name`, `background`, `color`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'U', 'Umum', '#000', '#fff', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(2, 'B', 'BPJS', '#000', '#fff', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(3, 'A', 'Asuransi', '#000', '#fff', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL);
+(1, 'U', 'Umum', '#000', '#fff', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(2, 'B', 'BPJS', '#000', '#fff', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(3, 'A', 'Asuransi', '#000', '#fff', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -157,13 +162,13 @@ CREATE TABLE `mst_hospital` (
 --
 
 INSERT INTO `mst_hospital` (`id`, `code`, `name`, `background`, `color`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'RSIM', 'RS Islam Muhammadiyah Sumberrejo', '#000', '#fff', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(2, 'RSASFT', 'RS \'Aisyiyah Siti Fatimah Tulangan', '#f10', '#fff', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(3, 'RSSKMCS', 'RS Siti Khodijah Muhammadiyah Cabang Sepanjang', '#ff0', '#000', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(4, 'RSAB', 'RS \'Aisyiyah Bojonegoro ', '#f0f', '#000', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(5, 'RSIAMM', 'RSIA Muhammadiyah Malang', '#0ff', '#000', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(6, 'RSIAM', 'RS Islam \'Aisyiyah Malang', '#02f', '#fff', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(7, 'RSMSU', 'RSU Muhammadiyah Sumatera Utara', '#fff', '#000', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL);
+(1, 'RSIM', 'RS Islam Muhammadiyah Sumberrejo', '#000', '#fff', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(2, 'RSASFT', 'RS \'Aisyiyah Siti Fatimah Tulangan', '#f10', '#fff', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(3, 'RSSKMCS', 'RS Siti Khodijah Muhammadiyah Cabang Sepanjang', '#ff0', '#000', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(4, 'RSAB', 'RS \'Aisyiyah Bojonegoro ', '#f0f', '#000', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(5, 'RSIAMM', 'RSIA Muhammadiyah Malang', '#0ff', '#000', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(6, 'RSIAM', 'RS Islam \'Aisyiyah Malang', '#02f', '#fff', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(7, 'RSMSU', 'RSU Muhammadiyah Sumatera Utara', '#fff', '#000', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -222,7 +227,17 @@ CREATE TABLE `mst_visit_method` (
   `deleted_at` datetime DEFAULT NULL,
   `deleted_by` varchar(191) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
--- Kesalahan membaca data untuk tabel dashboard_doctor.mst_visit_method: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `dashboard_doctor`.`mst_visit_method`&#039; at line 1
+
+--
+-- Dumping data untuk tabel `mst_visit_method`
+--
+
+INSERT INTO `mst_visit_method` (`id`, `code`, `name`, `background`, `color`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
+(1, 'A', 'Datang Sendiri', '#000', '#fff', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(2, 'B', 'Rujukan', '#000', '#fff', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(3, 'C', 'Gawat Darurat', '#000', '#fff', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(4, 'D', 'Ditemani Orang Tua', '#000', '#fff', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(5, 'E', 'Ditemani Istri', '#000', '#fff', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -235,7 +250,6 @@ CREATE TABLE `password_resets` (
   `token` varchar(191) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
--- Kesalahan membaca data untuk tabel dashboard_doctor.password_resets: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `dashboard_doctor`.`password_resets`&#039; at line 1
 
 -- --------------------------------------------------------
 
@@ -279,11 +293,59 @@ CREATE TABLE `stg_attributes` (
 --
 
 INSERT INTO `stg_attributes` (`id`, `title`, `value`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'background', 'Warna Latar', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(2, 'code', 'Kode', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(3, 'color', 'Warna', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(4, 'name', 'Nama', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(5, 'title', 'Judul', 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL);
+(1, 'background', 'Warna Latar', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(2, 'code', 'Kode', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(3, 'color', 'Warna', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(4, 'name', 'Nama', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(5, 'title', 'Judul', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `stg_data_access`
+--
+
+CREATE TABLE `stg_data_access` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `table_name` varchar(100) DEFAULT NULL,
+  `condition` text DEFAULT NULL,
+  `disabled` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL,
+  `created_by` varchar(191) NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` varchar(191) DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `deleted_by` varchar(191) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `stg_group_menu`
+--
+
+CREATE TABLE `stg_group_menu` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) NOT NULL,
+  `disabled` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL,
+  `created_by` varchar(191) NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` varchar(191) DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `deleted_by` varchar(191) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `stg_group_menu`
+--
+
+INSERT INTO `stg_group_menu` (`id`, `name`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
+(1, 'Developer', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(2, 'Dokter', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(3, 'Admin', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -336,10 +398,11 @@ CREATE TABLE `stg_main_menu` (
 --
 
 INSERT INTO `stg_main_menu` (`id`, `title`, `icon`, `url`, `is_parent`, `is_login`, `is_shown`, `order_no`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'Dashboard', 'entypo-gauge', '/', 0, 1, 1, 1, 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(2, 'Master', 'entypo-layout', NULL, 1, 1, 1, 3, 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(3, 'Pengaturan', 'entypo-cog', NULL, 1, 1, 1, 4, 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(4, 'Manajemen', 'entypo-docs', NULL, 1, 1, 1, 2, 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL);
+(1, 'Dashboard', 'entypo-gauge', '/', 0, 1, 1, 1, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(2, 'Master', 'entypo-layout', NULL, 1, 1, 1, 3, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(3, 'Pengaturan', 'entypo-cog', NULL, 1, 1, 1, 4, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(4, 'Manajemen', 'entypo-docs', NULL, 1, 1, 1, 2, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(5, 'Profile', '/entypo-user', '/profil', 0, 1, 0, 5, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -371,14 +434,118 @@ CREATE TABLE `stg_menu` (
 --
 
 INSERT INTO `stg_menu` (`id`, `title`, `icon`, `url`, `is_parent`, `is_login`, `is_shown`, `order_no`, `main_menu_id`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'Rumah Sakit', NULL, '/master/hospital', 0, 1, 1, 1, 2, 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(2, 'Cara Kunjung', NULL, '/master/visit-method', 0, 1, 1, 2, 2, 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(3, 'Tindakan', NULL, '/master/action', 0, 1, 1, 3, 2, 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(4, 'Jaminan', NULL, '/master/assurance', 0, 1, 1, 4, 2, 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(5, 'Akses Menu', NULL, '/setting/akses-menu', 0, 1, 1, 5, 3, 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(6, 'Pengguna', NULL, '/setting/user', 0, 1, 1, 6, 3, 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(7, 'Profil', NULL, '/setting/profile', 0, 1, 1, 7, 3, 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL),
-(8, 'Pasien', NULL, '/management/patient', 0, 1, 1, 8, 4, 0, '2023-10-19 20:34:10', 'Migrasi', '2023-10-19 20:34:10', NULL, NULL, NULL);
+(1, 'Rumah Sakit', NULL, '/master/hospital', 0, 1, 1, 1, 2, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(2, 'Cara Kunjung', NULL, '/master/visit-method', 0, 1, 1, 2, 2, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(3, 'Tindakan', NULL, '/master/action', 0, 1, 1, 3, 2, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(4, 'Jaminan', NULL, '/master/assurance', 0, 1, 1, 4, 2, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(5, 'Menu Akses', NULL, '/setting/menu-access', 0, 1, 1, 5, 3, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(6, 'Pengguna', NULL, '/setting/user', 0, 1, 1, 6, 3, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(7, 'Data Akses', NULL, '/setting/data-access', 0, 1, 1, 7, 3, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(8, 'Pasien', NULL, '/management/patient', 0, 1, 1, 8, 4, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(9, 'Peran', NULL, '/setting/role', 0, 1, 1, 9, 3, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(10, 'Grup Menu', NULL, '/setting/group-menu', 0, 1, 1, 10, 3, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(11, 'Provider', NULL, '/setting/provider', 0, 1, 1, 11, 3, 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `stg_menu_access`
+--
+
+CREATE TABLE `stg_menu_access` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `group_menu_id` int(10) UNSIGNED NOT NULL,
+  `main_menu_id` int(10) UNSIGNED DEFAULT NULL,
+  `menu_id` int(10) UNSIGNED DEFAULT NULL,
+  `submenu_id` int(10) UNSIGNED DEFAULT NULL,
+  `add` tinyint(1) NOT NULL DEFAULT 0,
+  `edit` tinyint(1) NOT NULL DEFAULT 0,
+  `delete` tinyint(1) NOT NULL DEFAULT 0,
+  `detail` tinyint(1) NOT NULL DEFAULT 0,
+  `view` tinyint(1) NOT NULL DEFAULT 0,
+  `approval` tinyint(1) NOT NULL DEFAULT 0,
+  `disabled` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL,
+  `created_by` varchar(191) NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` varchar(191) DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `deleted_by` varchar(191) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `stg_provider`
+--
+
+CREATE TABLE `stg_provider` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `provider_npwp` varchar(25) DEFAULT NULL,
+  `provider_name` varchar(250) NOT NULL,
+  `provider_birth_place` varchar(100) DEFAULT NULL,
+  `provider_birth_date` date DEFAULT NULL,
+  `provider_email` varchar(191) DEFAULT NULL,
+  `provider_phone_number` varchar(25) DEFAULT NULL,
+  `provider_home_number` varchar(25) DEFAULT NULL,
+  `provider_address_1` text DEFAULT NULL,
+  `provider_address_2` varchar(3) DEFAULT NULL,
+  `provider_address_3` varchar(3) DEFAULT NULL,
+  `provider_district_id` int(10) UNSIGNED DEFAULT NULL,
+  `provider_ward` varchar(191) DEFAULT NULL,
+  `provider_logo` text DEFAULT NULL,
+  `provider_picture` text DEFAULT NULL,
+  `owner_npwp` varchar(25) DEFAULT NULL,
+  `owner_nik` varchar(16) DEFAULT NULL,
+  `owner_name` varchar(250) NOT NULL,
+  `owner_birth_place` varchar(100) DEFAULT NULL,
+  `owner_birth_date` date DEFAULT NULL,
+  `owner_email` varchar(191) DEFAULT NULL,
+  `owner_phone_number` varchar(25) DEFAULT NULL,
+  `owner_home_number` varchar(25) DEFAULT NULL,
+  `owner_address_1` text DEFAULT NULL,
+  `owner_address_2` varchar(3) DEFAULT NULL,
+  `owner_address_3` varchar(3) DEFAULT NULL,
+  `owner_district_id` int(10) UNSIGNED DEFAULT NULL,
+  `owner_ward` varchar(191) DEFAULT NULL,
+  `disabled` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL,
+  `created_by` varchar(191) NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` varchar(191) DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `deleted_by` varchar(191) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `stg_role`
+--
+
+CREATE TABLE `stg_role` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) NOT NULL,
+  `disabled` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL,
+  `created_by` varchar(191) NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` varchar(191) DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `deleted_by` varchar(191) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `stg_role`
+--
+
+INSERT INTO `stg_role` (`id`, `name`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
+(1, 'Developer', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(2, 'Dokter', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(3, 'Dewa', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(4, 'Admin 1', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(5, 'Admin 2', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL),
+(6, 'Admin 3', 0, '2023-10-19 21:47:29', 'Migrasi', '2023-10-19 21:47:29', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -469,6 +636,18 @@ ALTER TABLE `stg_attributes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `stg_data_access`
+--
+ALTER TABLE `stg_data_access`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `stg_group_menu`
+--
+ALTER TABLE `stg_group_menu`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `stg_login`
 --
 ALTER TABLE `stg_login`
@@ -485,6 +664,33 @@ ALTER TABLE `stg_main_menu`
 -- Indeks untuk tabel `stg_menu`
 --
 ALTER TABLE `stg_menu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `stg_menu_access`
+--
+ALTER TABLE `stg_menu_access`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `stg_provider`
+--
+ALTER TABLE `stg_provider`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `stg_provider_provider_npwp_unique` (`provider_npwp`),
+  ADD UNIQUE KEY `stg_provider_provider_email_unique` (`provider_email`),
+  ADD UNIQUE KEY `stg_provider_provider_phone_number_unique` (`provider_phone_number`),
+  ADD UNIQUE KEY `stg_provider_provider_home_number_unique` (`provider_home_number`),
+  ADD UNIQUE KEY `stg_provider_owner_npwp_unique` (`owner_npwp`),
+  ADD UNIQUE KEY `stg_provider_owner_nik_unique` (`owner_nik`),
+  ADD UNIQUE KEY `stg_provider_owner_email_unique` (`owner_email`),
+  ADD UNIQUE KEY `stg_provider_owner_phone_number_unique` (`owner_phone_number`),
+  ADD UNIQUE KEY `stg_provider_owner_home_number_unique` (`owner_home_number`);
+
+--
+-- Indeks untuk tabel `stg_role`
+--
+ALTER TABLE `stg_role`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -508,7 +714,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `mst_action`
@@ -553,6 +759,18 @@ ALTER TABLE `stg_attributes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT untuk tabel `stg_data_access`
+--
+ALTER TABLE `stg_data_access`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `stg_group_menu`
+--
+ALTER TABLE `stg_group_menu`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT untuk tabel `stg_login`
 --
 ALTER TABLE `stg_login`
@@ -562,13 +780,31 @@ ALTER TABLE `stg_login`
 -- AUTO_INCREMENT untuk tabel `stg_main_menu`
 --
 ALTER TABLE `stg_main_menu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `stg_menu`
 --
 ALTER TABLE `stg_menu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT untuk tabel `stg_menu_access`
+--
+ALTER TABLE `stg_menu_access`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `stg_provider`
+--
+ALTER TABLE `stg_provider`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `stg_role`
+--
+ALTER TABLE `stg_role`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

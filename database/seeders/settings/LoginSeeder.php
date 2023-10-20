@@ -13,10 +13,10 @@ class LoginSeeder extends CsvSeeder
         $this->file = '/database/csv/Settings/Login.csv';
         $this->tablename = 'stg_login';
         $this->defaults = [
-            'created_by'    => 'Migrasi'
+            'created_by'    => 'Migrasi',
+            'created_at'    => now(),
         ];
         $this->mapping = ['id', 'username', 'password', 'user_id'];
-        $this->header = false;
     }
 
     public function run()

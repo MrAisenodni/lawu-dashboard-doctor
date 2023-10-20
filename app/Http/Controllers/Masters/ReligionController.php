@@ -5,21 +5,21 @@ namespace App\Http\Controllers\Masters;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class HospitalController extends Controller
+class ReligionController extends Controller
 {
-    protected $path = '/master/hospital';
+    protected $path = '/master/religion';
 
     public function index()
     {
         $data = [
             'c_menu'        => $this->menu->select('id', 'title', 'url')->where('disabled', 0)->where('url', $this->path)->first(),
-            'data'          => $this->hospital->select('id', 'code', 'name', 'color', 'background')->where('disabled', 0)->get(),
+            'data'          => $this->religion->select('id', 'name')->where('disabled', 0)->get(),
         ];
         // $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
         //     ->where('role', session()->get('srole_id'))->where('menu_id', $data['c_menu']->id)->first();
         // if ($data['access']->view == 0) abort(403);
 
-        return view('masters.hospital.index', $data);
+        return view('masters.religion.index', $data);
     }
 
     public function create()
@@ -31,27 +31,22 @@ class HospitalController extends Controller
         //     ->where('role', session()->get('srole_id'))->where('menu_id', $data['c_menu']->id)->first();
         // if ($data['access']->view == 0 || $data['access']->edit == 0) abort(403);
         
-        return view('masters.hospital.create', $data);
+        return view('masters.religion.create', $data);
     }
 
     public function store(Request $request)
     {
         $validate = $request->validate([
             'name'          => 'required',
-            'background'    => 'required',
-            'color'         => 'required',
         ]);
 
         $data = [
-            'code'          => $request->code,
             'name'          => $request->name,
-            'background'    => $request->background,
-            'color'         => $request->color,
             'created_at'    => now(),
             'created_by'    => session()->get('sname').' ('.session()->get('srole_id').')',
         ];
 
-        $this->hospital->insert($data);
+        $this->religion->insert($data);
 
         return redirect($this->path)->with('status', 'Data Berhasil Ditambahkan.');
     }
@@ -60,46 +55,41 @@ class HospitalController extends Controller
     {
         $data = [
             'c_menu'        => $this->menu->select('id', 'title', 'url')->where('url', $this->path)->first(),
-            'detail'        => $this->hospital->select('id', 'code', 'name', 'color', 'background')->where('id', $id)->where('disabled', 0)->first(),
+            'detail'        => $this->religion->select('id', 'name')->where('id', $id)->where('disabled', 0)->first(),
         ];
         // $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
         //     ->where('role', session()->get('srole_id'))->where('menu_id', $data['c_menu']->id)->first();
         // if ($data['access']->view == 0 || $data['access']->detail == 0) abort(403);
         
-        return view('masters.hospital.show', $data);
+        return view('masters.religion.show', $data);
     }
 
     public function edit($id)
     {
         $data = [
             'c_menu'        => $this->menu->select('id', 'title', 'url')->where('url', $this->path)->first(),
-            'detail'        => $this->hospital->select('id', 'code', 'name', 'color', 'background')->where('id', $id)->where('disabled', 0)->first(),
+            'detail'        => $this->religion->select('id', 'name')->where('id', $id)->where('disabled', 0)->first(),
         ];
         // $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
         //     ->where('role', session()->get('srole_id'))->where('menu_id', $data['c_menu']->id)->first();
         // if ($data['access']->view == 0 || $data['access']->edit == 0) abort(403);
         
-        return view('masters.hospital.edit', $data);
+        return view('masters.religion.edit', $data);
     }
 
     public function update(Request $request, $id)
     {
         $validate = $request->validate([
             'name'          => 'required',
-            'background'    => 'required',
-            'color'         => 'required',
         ]);
 
         $data = [
-            'code'          => $request->code,
             'name'          => $request->name,
-            'background'    => $request->background,
-            'color'         => $request->color,
             'updated_at'    => now(),
             'updated_by'    => session()->get('sname').' ('.session()->get('srole_id').')',
         ];
 
-        $this->hospital->where('id', $id)->update($data);
+        $this->religion->where('id', $id)->update($data);
 
         return redirect($this->path)->with('status', 'Data Berhasil Diubah.');
     }
@@ -112,7 +102,7 @@ class HospitalController extends Controller
             'updated_by'    => session()->get('sname').' ('.session()->get('srole_id').')',
         ];
 
-        $this->hospital->where('id', $id)->update($data);
+        $this->religion->where('id', $id)->update($data);
 
         return redirect($this->path)->with('status', 'Data Berhasil Dihapus.');
     }

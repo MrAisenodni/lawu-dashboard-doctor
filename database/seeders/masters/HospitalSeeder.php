@@ -13,7 +13,8 @@ class HospitalSeeder extends CsvSeeder
         $this->file = '/database/csv/masters/Hospital.csv';
         $this->tablename = 'mst_hospital';
         $this->defaults = [
-            'created_by'    => 'Migrasi'
+            'created_by'    => 'Migrasi',
+            'created_at'    => now(),
         ];
         $this->mapping = ['code', 'name', 'background', 'color'];
     }

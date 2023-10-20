@@ -16,7 +16,7 @@ class GroupMenuController extends Controller
             'data'          => $this->group_menu->select('id', 'name')->where('disabled', 0)->get(),
         ];
         // $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
-        //     ->where('role', session()->get('srole'))->where('menu_id', $data['c_menu']->id)->first();
+        //     ->where('role', session()->get('srole_id'))->where('menu_id', $data['c_menu']->id)->first();
         // if ($data['access']->view == 0) abort(403);
 
         return view('settings.group_menu.index', $data);
@@ -28,7 +28,7 @@ class GroupMenuController extends Controller
             'c_menu'        => $this->menu->select('id', 'title', 'url')->where('url', $this->path)->first(),
         ];
         // $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
-        //     ->where('role', session()->get('srole'))->where('menu_id', $data['c_menu']->id)->first();
+        //     ->where('role', session()->get('srole_id'))->where('menu_id', $data['c_menu']->id)->first();
         // if ($data['access']->view == 0 || $data['access']->edit == 0) abort(403);
         
         return view('settings.group_menu.create', $data);
@@ -43,7 +43,7 @@ class GroupMenuController extends Controller
         $data = [
             'name'          => $request->name,
             'created_at'    => now(),
-            'created_by'    => session()->get('sname').' ('.session()->get('srole').')',
+            'created_by'    => session()->get('sname').' ('.session()->get('srole_id').')',
         ];
 
         $this->group_menu->insert($data);
@@ -58,7 +58,7 @@ class GroupMenuController extends Controller
             'detail'        => $this->group_menu->select('id', 'name')->where('id', $id)->where('disabled', 0)->first(),
         ];
         // $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
-        //     ->where('role', session()->get('srole'))->where('menu_id', $data['c_menu']->id)->first();
+        //     ->where('role', session()->get('srole_id'))->where('menu_id', $data['c_menu']->id)->first();
         // if ($data['access']->view == 0 || $data['access']->detail == 0) abort(403);
         
         return view('settings.group_menu.show', $data);
@@ -71,7 +71,7 @@ class GroupMenuController extends Controller
             'detail'        => $this->group_menu->select('id', 'name')->where('id', $id)->where('disabled', 0)->first(),
         ];
         // $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
-        //     ->where('role', session()->get('srole'))->where('menu_id', $data['c_menu']->id)->first();
+        //     ->where('role', session()->get('srole_id'))->where('menu_id', $data['c_menu']->id)->first();
         // if ($data['access']->view == 0 || $data['access']->edit == 0) abort(403);
         
         return view('settings.group_menu.edit', $data);
@@ -86,7 +86,7 @@ class GroupMenuController extends Controller
         $data = [
             'name'          => $request->name,
             'updated_at'    => now(),
-            'updated_by'    => session()->get('sname').' ('.session()->get('srole').')',
+            'updated_by'    => session()->get('sname').' ('.session()->get('srole_id').')',
         ];
 
         $this->group_menu->where('id', $id)->update($data);
@@ -99,7 +99,7 @@ class GroupMenuController extends Controller
         $data = [
             'disabled'      => 1,
             'updated_at'    => now(),
-            'updated_by'    => session()->get('sname').' ('.session()->get('srole').')',
+            'updated_by'    => session()->get('sname').' ('.session()->get('srole_id').')',
         ];
 
         $this->group_menu->where('id', $id)->update($data);

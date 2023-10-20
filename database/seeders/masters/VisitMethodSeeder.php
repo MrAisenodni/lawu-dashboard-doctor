@@ -13,7 +13,8 @@ class VisitMethodSeeder extends CsvSeeder
         $this->file = '/database/csv/masters/VisitMethod.csv';
         $this->tablename = 'mst_visit_method';
         $this->defaults = [
-            'created_by'    => 'Migrasi'
+            'created_by'    => 'Migrasi',
+            'created_at'    => now(),
         ];
         $this->mapping = ['code', 'name', 'background', 'color'];
     }

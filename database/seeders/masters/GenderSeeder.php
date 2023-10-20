@@ -1,22 +1,22 @@
 <?php
 
-namespace Database\Seeders\Settings;
+namespace Database\Seeders\Masters;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use JeroenZwart\CsvSeeder\CsvSeeder;
 
-class GroupMenuSeeder extends CsvSeeder
+class GenderSeeder extends CsvSeeder
 {
     public function __construct()
     {
-        $this->file = '/database/csv/settings/GroupMenu.csv';
-        $this->tablename = 'stg_group_menu';
+        $this->file = '/database/csv/masters/Gender.csv';
+        $this->tablename = 'mst_gender';
         $this->defaults = [
             'created_by'    => 'Migrasi',
             'created_at'    => now(),
         ];
-        $this->mapping = ['name'];
+        $this->mapping = ['id', 'name'];
     }
 
     public function run()

@@ -13,7 +13,8 @@ class ActionSeeder extends CsvSeeder
         $this->file = '/database/csv/masters/Action.csv';
         $this->tablename = 'mst_action';
         $this->defaults = [
-            'created_by'    => 'Migrasi'
+            'created_by'    => 'Migrasi',
+            'created_at'    => now(),
         ];
         $this->mapping = ['code', 'name', 'background', 'color'];
     }

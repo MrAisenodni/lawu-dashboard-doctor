@@ -13,13 +13,13 @@ class ProviderSeeder extends CsvSeeder
         $this->file = '/database/csv/Settings/Provider.csv';
         $this->tablename = 'stg_provider';
         $this->defaults = [
-            'created_by'    => 'Migrasi'
+            'created_by'    => 'Migrasi',
+            'created_at'    => now(),
         ];
         $this->mapping = [
             'provider_npwp', 'provider_name', 'provider_address_1', 'provider_email', 'provider_phone_number', 'provider_home_number',
             'provider_logo', 'provider_picture', 'owner_name'
         ];
-        $this->header = false;
     }
 
     public function run()

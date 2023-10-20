@@ -13,7 +13,8 @@ class AssuranceSeeder extends CsvSeeder
         $this->file = '/database/csv/masters/Assurance.csv';
         $this->tablename = 'mst_assurance';
         $this->defaults = [
-            'created_by'    => 'Migrasi'
+            'created_by'    => 'Migrasi',
+            'created_at'    => now(),
         ];
         $this->mapping = ['code', 'name', 'background', 'color'];
     }

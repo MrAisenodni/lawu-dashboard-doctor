@@ -10,13 +10,13 @@ class UserSeeder extends CsvSeeder
 {
     public function __construct()
     {
-        $this->file = '/database/csv/Settings/User.csv';
-        $this->tablename = 'mst_user';
+        $this->file = '/database/csv/settings/User.csv';
+        $this->tablename = 'stg_user';
         $this->defaults = [
-            'created_by'    => 'Migrasi'
+            'created_by'    => 'Migrasi',
+            'created_at'    => now(),
         ];
-        $this->mapping = ['id', 'nik', 'full_name', 'gender', 'religion_id', 'email', 'role', 'picture', 'picture_name'];
-        $this->header = false;
+        $this->mapping = ['id', 'nik', 'full_name', 'gender_id', 'religion_id', 'email', 'role_id', 'group_menu_id', 'picture', 'picture_name'];
     }
 
     public function run()

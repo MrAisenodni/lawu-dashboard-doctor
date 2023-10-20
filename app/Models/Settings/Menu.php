@@ -19,6 +19,6 @@ class Menu extends Model
 
     public function menu_access()
     {
-        return $this->belongsTo(MenuAccess::class, 'id', 'menu_id')->select('id', 'main_menu_id', 'menu_id', 'submenu_id', 'role', 'view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)->where('role', session()->get('srole'));
+        return $this->belongsTo(MenuAccess::class, 'id', 'menu_id')->select('id', 'main_menu_id', 'menu_id', 'submenu_id', 'role', 'view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)->where('role', session()->get('srole_id'));
     }
 }

@@ -13,7 +13,8 @@ class MenuAccessSeeder extends CsvSeeder
         $this->file = '/database/csv/Settings/MenuAccess.csv';
         $this->tablename = 'stg_menu_access';
         $this->defaults = [
-            'created_by'    => 'Migrasi'
+            'created_by'    => 'Migrasi',
+            'created_at'    => now(),
         ];
         $this->mapping = ['role', 'menu_id', 'main_menu_id', 'submenu_id', 'view', 'add', 'edit', 'delete', 'detail', 'approval'];
         $this->header = false;

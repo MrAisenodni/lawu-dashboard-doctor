@@ -3,6 +3,7 @@
 namespace App\Models\Settings;
 
 use App\Models\Masters\{
+    Gender,
     Position,
     Religion,
 };
@@ -13,11 +14,15 @@ class User extends Model
 {
     use HasFactory;
 
-    protected $table = 'mst_user';
+    protected $table = 'stg_user';
 
     public function religion()
     {
         return $this->belongsTo(Religion::class, 'religion_id', 'id')->select('id', 'name')->where('disabled', 0);
+    }
+    public function gender()
+    {
+        return $this->belongsTo(Gender::class, 'gender_id', 'id')->select('id', 'name')->where('disabled', 0);
     }
 
     public function login()

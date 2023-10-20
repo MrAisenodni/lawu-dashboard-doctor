@@ -16,7 +16,7 @@ class ActionController extends Controller
             'data'          => $this->action->select('id', 'code', 'name', 'color', 'background')->where('disabled', 0)->get(),
         ];
         // $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
-        //     ->where('role', session()->get('srole'))->where('menu_id', $data['c_menu']->id)->first();
+        //     ->where('role', session()->get('srole_id'))->where('menu_id', $data['c_menu']->id)->first();
         // if ($data['access']->view == 0) abort(403);
 
         return view('masters.action.index', $data);
@@ -28,7 +28,7 @@ class ActionController extends Controller
             'c_menu'        => $this->menu->select('id', 'title', 'url')->where('url', $this->path)->first(),
         ];
         // $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
-        //     ->where('role', session()->get('srole'))->where('menu_id', $data['c_menu']->id)->first();
+        //     ->where('role', session()->get('srole_id'))->where('menu_id', $data['c_menu']->id)->first();
         // if ($data['access']->view == 0 || $data['access']->edit == 0) abort(403);
         
         return view('masters.action.create', $data);
@@ -48,7 +48,7 @@ class ActionController extends Controller
             'background'    => $request->background,
             'color'         => $request->color,
             'created_at'    => now(),
-            'created_by'    => session()->get('sname').' ('.session()->get('srole').')',
+            'created_by'    => session()->get('sname').' ('.session()->get('srole_id').')',
         ];
 
         $this->action->insert($data);
@@ -63,7 +63,7 @@ class ActionController extends Controller
             'detail'        => $this->action->select('id', 'code', 'name', 'color', 'background')->where('id', $id)->where('disabled', 0)->first(),
         ];
         // $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
-        //     ->where('role', session()->get('srole'))->where('menu_id', $data['c_menu']->id)->first();
+        //     ->where('role', session()->get('srole_id'))->where('menu_id', $data['c_menu']->id)->first();
         // if ($data['access']->view == 0 || $data['access']->detail == 0) abort(403);
         
         return view('masters.action.show', $data);
@@ -76,7 +76,7 @@ class ActionController extends Controller
             'detail'        => $this->action->select('id', 'code', 'name', 'color', 'background')->where('id', $id)->where('disabled', 0)->first(),
         ];
         // $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
-        //     ->where('role', session()->get('srole'))->where('menu_id', $data['c_menu']->id)->first();
+        //     ->where('role', session()->get('srole_id'))->where('menu_id', $data['c_menu']->id)->first();
         // if ($data['access']->view == 0 || $data['access']->edit == 0) abort(403);
         
         return view('masters.action.edit', $data);
@@ -96,7 +96,7 @@ class ActionController extends Controller
             'background'    => $request->background,
             'color'         => $request->color,
             'updated_at'    => now(),
-            'updated_by'    => session()->get('sname').' ('.session()->get('srole').')',
+            'updated_by'    => session()->get('sname').' ('.session()->get('srole_id').')',
         ];
 
         $this->action->where('id', $id)->update($data);
@@ -109,7 +109,7 @@ class ActionController extends Controller
         $data = [
             'disabled'      => 1,
             'updated_at'    => now(),
-            'updated_by'    => session()->get('sname').' ('.session()->get('srole').')',
+            'updated_by'    => session()->get('sname').' ('.session()->get('srole_id').')',
         ];
 
         $this->action->where('id', $id)->update($data);

@@ -13,7 +13,8 @@ class AttributesSeeder extends CsvSeeder
         $this->file = '/database/csv/settings/Attributes.csv';
         $this->tablename = 'stg_attributes';
         $this->defaults = [
-            'created_by'    => 'Migrasi'
+            'created_by'    => 'Migrasi',
+            'created_at'    => now(),
         ];
         $this->mapping = [
             'title', 'value'

@@ -340,3 +340,11 @@ body {
 		display: inline-flex !important
 	}
 }
+
+/* Color */
+.text-white {
+	color: white;
+}
+.bg-white {
+	background: white;
+}

@@ -1,5 +1,7 @@
-1;2022082812345;Developer;l;1;developer.pro@hotmail.com;adm;profiles/5. Developer.jpg;5. Developer.jpg
-2;2022082854321;Administrator;l;1;administrator.maternal@mpku.com;adm;profiles/4. Admin.jpg;4. Admin.jpg
-3;2022082854322;Samsul Mujakar;l;1;samsul.mujakar@mpku.com;tec;profiles/1. Samsul Mujakar.png;1. Samsul Mujakar.png
-4;1233217482294;Fita Asfianti;p;1;fifa.asfianti@mpku.com;tec;profiles/2. Fita Asfianti.png;2. Fita Asfianti.png
-5;1233217482295;Suci Dwi Fatmaningrum;p;1;suci.dwi.fatmaningrum@mpku.com;tec;profiles/3. Suci Dwi Fatmaningrum.png;3. Suci Dwi Fatmaningrum.png
+id;nik;full_name;gender;religion_id;email;role_id;group_menu_id;picture;picture_name
+1;123;Developer;1;1;developer@dev.com;1;1;/images/thumb-1.png;thumb-1.png
+2;321;Dokter;1;1;dokter@doc.com;2;2;/images/thumb-1.png;thumb-1.png
+3;001;Admin 1;1;1;admin@admin1.com;3;3;/images/thumb-1.png;thumb-1.png
+4;002;Admin 2;1;1;admin@admin2.com;4;3;/images/thumb-1.png;thumb-1.png
+5;003;Admin 3;1;1;admin@admin3.com;5;3;/images/thumb-1.png;thumb-1.png
+6;123123;Administrator;1;1;administrator@administrator.com;6;4;/images/thumb-1.png;thumb-1.png

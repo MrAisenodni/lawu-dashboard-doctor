@@ -13,7 +13,8 @@ class MainMenuSeeder extends CsvSeeder
         $this->file = '/database/csv/settings/MainMenu.csv';
         $this->tablename = 'stg_main_menu';
         $this->defaults = [
-            'created_by'    => 'Migrasi'
+            'created_by'    => 'Migrasi',
+            'created_at'    => now(),
         ];
         $this->mapping = ['id', 'title', 'icon', 'url', 'is_parent', 'is_login', 'order_no', 'is_shown'];
     }
