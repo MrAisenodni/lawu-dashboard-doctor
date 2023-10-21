@@ -13,6 +13,9 @@ class PageController extends Controller
             'c_menu'            => $this->main_menu->select('id', 'title')->where('disabled', 0)->where('url', '/')->first(),
             // 'sysmenu'           => DB::table('information_schema.INNODB_SYS_TABLES')->selectRaw("REPLACE(name, 'dashboard_doctor/', '') AS table_name")->where('name', 'LIKE', 'dashboard_doctor%')->orderBy('name')->get(),
         ];
+        $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
+            ->where('group_menu_id', session()->get('sgroup_menu_id'))->where('main_menu_id', $data['c_menu']->id)->first();
+        if ($data['access']->view == 0) abort(403);
 
         return view('index', $data);
     }

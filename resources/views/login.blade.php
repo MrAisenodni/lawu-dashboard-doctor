@@ -67,20 +67,26 @@
                 <form method="post" role="form" action="/login">
                     @csrf
                     <div class="form-group">
-                        <div class="input-group">
+                        <div class="input-group @error('username') validate-has-error @enderror">
                             <div class="input-group-addon">
                                 <i class="entypo-user"></i>
                             </div>
                             <input type="text" class="form-control" name="username" id="username" placeholder="Username" autocomplete="off" />
                         </div>
+                        @error('username')
+                            <span id="name-error" class="validate-has-error">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="form-group">
-                        <div class="input-group">
+                        <div class="input-group @error('password') validate-has-error @enderror">
                             <div class="input-group-addon">
                                 <i class="entypo-key"></i>
                             </div>
                             <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" />
                         </div>
+                        @error('password')
+                            <span id="name-error" class="validate-has-error">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-secondary btn-block btn-login">

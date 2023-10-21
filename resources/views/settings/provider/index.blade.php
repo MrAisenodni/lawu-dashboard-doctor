@@ -95,19 +95,19 @@
                         <td>{{ $item->name }}</td>
                         <td style="background: {{ $item->background }}; color: {{ $item->color }}">{{ $item->background }}</td>
                         <td class="text-center">
-                            {{-- @if ($access->edit == 1) --}}
+                            @if ($access->edit == 1)
                                 <a href="{{ $c_menu->url }}/{{ $item->id }}/edit" class="text-success"><i class="entypo-pencil"></i></a>
-                            {{-- @endif
-                            @if ($access->delete == 1) --}}
+                            @endif
+                            @if ($access->delete == 1)
                                 <form action="{{ $c_menu->url }}/{{ $item->id }}" method="POST" class="d-inline">
                                     @method('delete')
                                     @csrf
                                     <button id="delete" type="submit" class="text-danger sa-warning" style="border: 0px; background: 0%"><i class="entypo-trash"></i></button>
                                 </form>
-                            {{-- @endif
-                            @if ($access->detail == 1) --}}
+                            @endif
+                            @if ($access->detail == 1)
                                 <a href="{{ $c_menu->url }}/{{ $item->id }}" class="text-info"><i class="entypo-eye"></i></a>
-                            {{-- @endif --}}
+                            @endif
                         </td>
                     </tr>
                 @endforeach

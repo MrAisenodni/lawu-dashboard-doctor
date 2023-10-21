@@ -30,33 +30,37 @@
     @if ($main_menus)
         @foreach ($main_menus as $main_menu)
             @if ($main_menu->is_shown == 1)
-                @if ($main_menu->is_parent == 0)
-                    <li @if($c_menu->id == $main_menu->id) class="active" @endif>
-                        <a href="{{ $main_menu->url }}">
-                            <i class="{{ $main_menu->icon }}"></i>
-                            <span class="title">{{ $main_menu->title }}</span>
-                        </a>
-                    </li>
-                @else
-                    <li class="has-sub @if($c_menu->id == $main_menu->id) active opened @endif">
-                        <a href="/">
-                            <i class="{{ $main_menu->icon }}"></i>
-                            <span class="title">{{ $main_menu->title }}</span>
-                        </a>
-                        <ul>
-                            @if ($main_menu->menus)
-                                @foreach ($main_menu->menus as $menu)
-                                    @if ($menu->is_shown == 1)
-                                        <li @if($c_menu->id == $menu->id) class="active" @endif>
-                                            <a href="{{ $menu->url }}">
-                                                <span class="title">{{ $menu->title }}</span>
-                                            </a>
-                                        </li>
-                                    @endif
-                                @endforeach
-                            @endif
-                        </ul>
-                    </li>
+                @if ($main_menu->menu_access->view == 1)
+                    @if ($main_menu->is_parent == 0)
+                        <li @if($c_menu->id == $main_menu->id) class="active" @endif>
+                            <a href="{{ $main_menu->url }}">
+                                <i class="{{ $main_menu->icon }}"></i>
+                                <span class="title">{{ $main_menu->title }}</span>
+                            </a>
+                        </li>
+                    @else
+                        <li class="has-sub @if($c_menu->id == $main_menu->id) active opened @endif">
+                            <a href="/">
+                                <i class="{{ $main_menu->icon }}"></i>
+                                <span class="title">{{ $main_menu->title }}</span>
+                            </a>
+                            <ul>
+                                @if ($main_menu->menus)
+                                    @foreach ($main_menu->menus as $menu)
+                                        @if ($menu->is_shown == 1)
+                                            @if ($menu->menu_access->view == 1)
+                                                <li @if($c_menu->id == $menu->id) class="active" @endif>
+                                                    <a href="{{ $menu->url }}">
+                                                        <span class="title">{{ $menu->title }}</span>
+                                                    </a>
+                                                </li>
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                @endif
+                            </ul>
+                        </li>
+                    @endif
                 @endif
             @endif
         @endforeach

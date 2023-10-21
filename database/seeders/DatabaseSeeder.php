@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             Settings\LoginSeeder::class,
             Settings\MainMenuSeeder::class,
             Settings\MenuSeeder::class,
+            Settings\MenuAccessSeeder::class,
             Settings\RoleSeeder::class,
             Settings\ProviderSeeder::class,
             Settings\UserSeeder::class,
