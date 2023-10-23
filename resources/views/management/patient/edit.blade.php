@@ -432,7 +432,7 @@
                                             <option></option>
                                             @if ($educations)
                                                 @foreach ($educations as $item)
-                                                    <option value="{{ $item->id }}" @if(old('education', $detail->education) == $item->id) selected @endif>{{ $item->name }}</option>
+                                                    <option value="{{ $item->id }}" @if(old('education', $detail->education_id) == $item->id) selected @endif>{{ $item->name }}</option>
                                                 @endforeach
                                             @endif
                                         </select>

@@ -2,6 +2,7 @@
 
 namespace App\Models\Management;
 
+use App\Factories\PatientFactory;
 use App\Models\Masters\{
     Action, Assurance, BloodType, Citizen, City, Clinic, Country, District, Doctor,
     Education, Gender, Hospital, MaritalStatus, Occupation, PaymentMethod, Province,

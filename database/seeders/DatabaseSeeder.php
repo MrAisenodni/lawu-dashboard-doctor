@@ -46,6 +46,9 @@ class DatabaseSeeder extends Seeder
             Settings\RoleSeeder::class,
             Settings\ProviderSeeder::class,
             Settings\UserSeeder::class,
+
+            // Management Seeder
+            Management\PatientSeeder::class,
         ]);
     }
 }

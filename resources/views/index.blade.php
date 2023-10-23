@@ -18,10 +18,8 @@
 	<script src="{{ asset('/js/morris.min.js') }}"></script>
 	<script src="{{ asset('/js/toastr.js') }}"></script>
 	<script src="{{ asset('/js/neon-chat.js') }}"></script>
-@endsection
-
-@section('content')
-    <script type="text/javascript">
+    
+    {{-- <script type="text/javascript">
         jQuery(document).ready(function($)
         {
             // Sample Toastr Notification
@@ -207,64 +205,84 @@
         {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-    </script>
+    </script> --}}
+@endsection
 
+@section('content')
 
-    <div class="row">
-        <div class="col-sm-3 col-xs-6">
+    @if ($hospitals)
+        @foreach ($hospitals as $item)
+            <div class="row mb-2">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <h2 class="fw-bold">{{ $item->code }} - {{ $item->name }}</h2>
+                        </div>
+                    </div>
 
-            <div class="tile-stats tile-red">
-                <div class="icon"><i class="entypo-users"></i></div>
-                <div class="num" data-start="0" data-end="83" data-postfix="" data-duration="1500" data-delay="0">0</div>
+                    <div class="row">
+                        <div class="col-sm-3 col-xs-12">
+                            <div class="tile-stats tile-red" style="background: {{ $item->background }}">
+                                <div class="icon"><i class="entypo-users"></i></div>
+                                <div class="num" style="color: {{ $item->color }}" data-start="0" data-end="@if ($item->patients) {{ $item->patients->count() }} @endif" data-postfix="" data-duration="1000" data-delay="0">@if ($item->patients) {{ $item->patients->count() }} @endif</div>
+                
+                                <h3 style="color: {{ $item->color }}">Total Pasien</h3>
+                            </div>
+                        </div>
 
-                <h3>Registered users</h3>
-                <p>so far in our blog, and our website.</p>
+                        @if ($actions)
+                            @foreach ($actions as $action)
+                                @if ($data['hospital_' . $item->id])
+                                    <div class="col-sm-3 col-xs-12">
+                                        <div class="tile-stats tile-red" style="background: {{ $action->background }}">
+                                            <div class="icon"><i class="entypo-users"></i></div>
+                                            <div class="num" style="color: {{ $action->color }}" data-start="0" data-end="@if ($data['hospital_' . $item->id]['action_' . $action->id]) {{ $data['hospital_' . $item->id]['action_' . $action->id] }} @endif" data-postfix="" data-duration="1000" data-delay="0">@if ($data['hospital_' . $item->id]['action_' . $action->id]) {{ $data['hospital_' . $item->id]['action_' . $action->id] }} @endif</div>
+                            
+                                            <h3 style="color: {{ $action->color }}">Total {{ $action->name }}</h3>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endif
+
+                        @if ($assurances)
+                            @foreach ($assurances as $assurance)
+                                @if ($data['hospital_' . $item->id])
+                                    <div class="col-sm-3 col-xs-12">
+                                        <div class="tile-stats tile-red" style="background: {{ $assurance->background }}">
+                                            <div class="icon"><i class="entypo-users"></i></div>
+                                            <div class="num" style="color: {{ $assurance->color }}" data-start="0" data-end="@if ($data['hospital_' . $item->id]['assurance_' . $assurance->id]) {{ $data['hospital_' . $item->id]['assurance_' . $assurance->id] }} @endif" data-postfix="" data-duration="1000" data-delay="0">@if ($data['hospital_' . $item->id]['assurance_' . $assurance->id]) {{ $data['hospital_' . $item->id]['assurance_' . $assurance->id] }} @endif</div>
+                            
+                                            <h3 style="color: {{ $assurance->color }}">Total {{ $assurance->name }}</h3>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endif
+
+                        @if ($visit_methods)
+                            @foreach ($visit_methods as $visit_method)
+                                @if ($data['hospital_' . $item->id])
+                                    <div class="col-sm-3 col-xs-12">
+                                        <div class="tile-stats tile-red" style="background: {{ $visit_method->background }}">
+                                            <div class="icon"><i class="entypo-users"></i></div>
+                                            <div class="num" style="color: {{ $visit_method->color }}" data-start="0" data-end="@if ($data['hospital_' . $item->id]['visit_method_' . $visit_method->id]) {{ $data['hospital_' . $item->id]['visit_method_' . $visit_method->id] }} @endif" data-postfix="" data-duration="1000" data-delay="0">@if ($data['hospital_' . $item->id]['visit_method_' . $visit_method->id]) {{ $data['hospital_' . $item->id]['visit_method_' . $visit_method->id] }} @endif</div>
+                            
+                                            <h3 style="color: {{ $visit_method->color }}">Total {{ $visit_method->name }}</h3>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
             </div>
-
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-
-            <div class="tile-stats tile-green">
-                <div class="icon"><i class="entypo-chart-bar"></i></div>
-                <div class="num" data-start="0" data-end="135" data-postfix="" data-duration="1500" data-delay="600">0</div>
-
-                <h3>Daily Visitors</h3>
-                <p>this is the average value.</p>
-            </div>
-
-        </div>
-        
-        <div class="clear visible-xs"></div>
-
-        <div class="col-sm-3 col-xs-6">
-
-            <div class="tile-stats tile-aqua">
-                <div class="icon"><i class="entypo-mail"></i></div>
-                <div class="num" data-start="0" data-end="23" data-postfix="" data-duration="1500" data-delay="1200">0</div>
-
-                <h3>New Messages</h3>
-                <p>messages per day.</p>
-            </div>
-
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-
-            <div class="tile-stats tile-blue">
-                <div class="icon"><i class="entypo-rss"></i></div>
-                <div class="num" data-start="0" data-end="52" data-postfix="" data-duration="1500" data-delay="1800">0</div>
-
-                <h3>Subscribers</h3>
-                <p>on our site right now.</p>
-            </div>
-
-        </div>
-    </div>
+        @endforeach
+    @endif
 
     <br />
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-sm-8">
 
             <div class="panel panel-primary" id="charts_env">
@@ -443,155 +461,5 @@
 
     </div>
 
-    <br />
-
-
-    <script type="text/javascript">
-        // Code used to add Todo Tasks
-        jQuery(document).ready(function($)
-        {
-            var $todo_tasks = $("#todo_tasks");
-
-            $todo_tasks.find('input[type="text"]').on('keydown', function(ev)
-            {
-                if(ev.keyCode == 13)
-                {
-                    ev.preventDefault();
-
-                    if($.trim($(this).val()).length)
-                    {
-                        var $todo_entry = $('<li><div class="checkbox checkbox-replace color-white"><input type="checkbox" /><label>'+$(this).val()+'</label></div></li>');
-                        $(this).val('');
-
-                        $todo_entry.appendTo($todo_tasks.find('.todo-list'));
-                        $todo_entry.hide().slideDown('fast');
-                        replaceCheckboxes();
-                    }
-                }
-            });
-        });
-    </script>
-
-    <div class="row">
-
-        <div class="col-sm-3">
-            <div class="tile-block" id="todo_tasks">
-
-                <div class="tile-header">
-                    <i class="entypo-list"></i>
-
-                    <a href="#">
-                        Tasks
-                        <span>To do list, tick one.</span>
-                    </a>
-                </div>
-
-                <div class="tile-content">
-
-                    <input type="text" class="form-control" placeholder="Add Task" />
-
-
-                    <ul class="todo-list">
-                        <li>
-                            <div class="checkbox checkbox-replace color-white">
-                                <input type="checkbox" />
-                                <label>Website Design</label>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="checkbox checkbox-replace color-white">
-                                <input type="checkbox" id="task-2" checked />
-                                <label>Slicing</label>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="checkbox checkbox-replace color-white">
-                                <input type="checkbox" id="task-3" />
-                                <label>WordPress Integration</label>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="checkbox checkbox-replace color-white">
-                                <input type="checkbox" id="task-4" />
-                                <label>SEO Optimize</label>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="checkbox checkbox-replace color-white">
-                                <input type="checkbox" id="task-5" checked="" />
-                                <label>Minify &amp; Compress</label>
-                            </div>
-                        </li>
-                    </ul>
-
-                </div>
-
-                <div class="tile-footer">
-                    <a href="#">View all tasks</a>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-sm-9">
-
-            <script type="text/javascript">
-                jQuery(document).ready(function($)
-                {
-                    var map = $("#map-2");
-
-                    map.vectorMap({
-                        map: 'europe_merc_en',
-                        zoomMin: '3',
-                        backgroundColor: '#383f47',
-                        focusOn: { x: 0.5, y: 0.8, scale: 3 }
-                    });
-                });
-            </script>
-
-            <div class="tile-group">
-
-                <div class="tile-left">
-                    <div class="tile-entry">
-                        <h3>Map</h3>
-                        <span>top visitors location</span>
-                    </div>
-
-                    <div class="tile-entry">
-                        <img src="{{ asset('/images/sample-al.png') }}" alt="" class="pull-right op" />
-
-                        <h4>Albania</h4>
-                        <span>25%</span>
-                    </div>
-
-                    <div class="tile-entry">
-                        <img src="{{ asset('/images/sample-it.png') }}" alt="" class="pull-right op" />
-
-                        <h4>Italy</h4>
-                        <span>18%</span>
-                    </div>
-
-                    <div class="tile-entry">
-                        <img src="{{ asset('/images/sample-au.png') }}" alt="" class="pull-right op" />
-
-                        <h4>Austria</h4>
-                        <span>15%</span>
-                    </div>
-                </div>
-
-                <div class="tile-right">
-
-                    <div id="map-2" class="map"></div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+    <br /> --}}
 @endsection
