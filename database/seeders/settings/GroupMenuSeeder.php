@@ -16,7 +16,7 @@ class GroupMenuSeeder extends CsvSeeder
             'created_by'    => 'Migrasi',
             'created_at'    => now(),
         ];
-        $this->mapping = ['name'];
+        $this->mapping = ['id', 'name'];
     }
 
     public function run()

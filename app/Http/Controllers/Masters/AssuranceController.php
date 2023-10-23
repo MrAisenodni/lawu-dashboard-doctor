@@ -12,7 +12,7 @@ class AssuranceController extends Controller
     public function index()
     {
         $data = [
-            'c_menu'        => $this->menu->select('id', 'title', 'url')->where('disabled', 0)->where('url', $this->path)->first(),
+            'c_menu'        => $this->menu->select('id', 'title', 'url', 'main_menu_id')->where('disabled', 0)->where('url', $this->path)->first(),
             'data'          => $this->assurance->select('id', 'code', 'name', 'color', 'background')->where('disabled', 0)->get(),
         ];
         $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
@@ -25,11 +25,11 @@ class AssuranceController extends Controller
     public function create()
     {
         $data = [
-            'c_menu'        => $this->menu->select('id', 'title', 'url')->where('url', $this->path)->first(),
+            'c_menu'        => $this->menu->select('id', 'title', 'url', 'main_menu_id')->where('disabled', 0)->where('url', $this->path)->first(),
         ];
         $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
             ->where('group_menu_id', session()->get('sgroup_menu_id'))->where('menu_id', $data['c_menu']->id)->first();
-        if ($data['access']->view == 0 || $data['access']->create == 0) abort(403);
+        if ($data['access']->view == 0 || $data['access']->add == 0) abort(403);
         
         return view('masters.assurance.create', $data);
     }
@@ -59,7 +59,7 @@ class AssuranceController extends Controller
     public function show($id)
     {
         $data = [
-            'c_menu'        => $this->menu->select('id', 'title', 'url')->where('url', $this->path)->first(),
+            'c_menu'        => $this->menu->select('id', 'title', 'url', 'main_menu_id')->where('disabled', 0)->where('url', $this->path)->first(),
             'detail'        => $this->assurance->select('id', 'code', 'name', 'color', 'background')->where('id', $id)->where('disabled', 0)->first(),
         ];
         $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
@@ -72,7 +72,7 @@ class AssuranceController extends Controller
     public function edit($id)
     {
         $data = [
-            'c_menu'        => $this->menu->select('id', 'title', 'url')->where('url', $this->path)->first(),
+            'c_menu'        => $this->menu->select('id', 'title', 'url', 'main_menu_id')->where('disabled', 0)->where('url', $this->path)->first(),
             'detail'        => $this->assurance->select('id', 'code', 'name', 'color', 'background')->where('id', $id)->where('disabled', 0)->first(),
         ];
         $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)

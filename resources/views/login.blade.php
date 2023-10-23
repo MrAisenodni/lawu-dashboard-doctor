@@ -71,7 +71,7 @@
                             <div class="input-group-addon">
                                 <i class="entypo-user"></i>
                             </div>
-                            <input type="text" class="form-control" name="username" id="username" placeholder="Username" autocomplete="off" />
+                            <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="{{ old('username') }}" autocomplete="off" />
                         </div>
                         @error('username')
                             <span id="name-error" class="validate-has-error">{{ $message }}</span>
@@ -82,7 +82,7 @@
                             <div class="input-group-addon">
                                 <i class="entypo-key"></i>
                             </div>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" />
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="{{ old('password') }}" autocomplete="off" />
                         </div>
                         @error('password')
                             <span id="name-error" class="validate-has-error">{{ $message }}</span>

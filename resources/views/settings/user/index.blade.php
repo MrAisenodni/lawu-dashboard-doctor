@@ -7,13 +7,16 @@
 	<link rel="stylesheet" href="{{ asset('/js/datatables/datatables.css') }}">
 	<link rel="stylesheet" href="{{ asset('/js/select2/select2-bootstrap.css') }}">
 	<link rel="stylesheet" href="{{ asset('/js/select2/select2.css') }}">
+    <link rel="stylesheet" href="{{ asset('/js/sweet-alert2/sweetalert2.min.css') }}" type="text/css">
 @endsection
 
 @section('scripts')
     <!-- Imported scripts on this page -->
     <script src="{{ asset('/js/datatables/datatables.js') }}"></script>
     <script src="{{ asset('/js/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('/js/sweet-alert2/sweetalert2.min.js') }}"></script>
 
+    {{-- Data Table --}}
     <script type="text/javascript">
         jQuery( document ).ready( function( $ ) {
             var $table4 = jQuery( "#table-4" );
@@ -38,6 +41,32 @@
 				minimumResultsForSearch: -1
 			});
         } );		
+    </script>
+
+    {{-- Sweet Alert --}}
+    <script type="text/javascript">
+        $('.sa-warning').click(function(e) {
+            var form = $(this).closest('form')
+            e.preventDefault()
+
+            swal({
+                title: 'Apakah Kamu Yakin?',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonClass: 'btn btn-success text-white',
+                cancelButtonClass: 'btn btn-danger m-l-10',
+                confirmButtonText: 'Yakin',
+                cancelButtonText: 'Batal',
+            }).then(function() {
+                swal(
+                    'Terhapus!',
+                    'Data berhasil dihapus.',
+                    'success',
+                ).then(function() {
+                    form.submit()
+                })
+            })
+        })
     </script>
 @endsection
 
@@ -80,9 +109,11 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Kode</th>
-                <th>{{ $c_menu->title }}</th>
-                <th>Warna</th>
+                <th>Username</th>
+                <th>Nama Lengkap</th>
+                <th>Jenis Kelamin</th>
+                <th>Email / No HP</th>
+                <th>Peran / Grup Menu</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -91,9 +122,11 @@
                 @foreach ($data as $item)
                     <tr class="odd gradeX">
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td>{{ $item->code }}</td>
-                        <td>{{ $item->name }}</td>
-                        <td style="background: {{ $item->background }}; color: {{ $item->color }}">{{ $item->background }}</td>
+                        <td>{{ $item->login->username }}</td>
+                        <td>{{ $item->full_name }}</td>
+                        <td>{{ $item->gender->name }}</td>
+                        <td>{{ $item->email }} / {{ $item->phone_number }}</td>
+                        <td>{{ $item->role->name }} / {{ $item->group_menu->name }}</td>
                         <td class="text-center">
                             @if ($access->edit == 1)
                                 <a href="{{ $c_menu->url }}/{{ $item->id }}/edit" class="text-success"><i class="entypo-pencil"></i></a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Okt 2023 pada 17.55
+-- Waktu pembuatan: 21 Okt 2023 pada 06.59
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.1.12
 
@@ -36,7 +36,6 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
--- Kesalahan membaca data untuk tabel dashboard_doctor.failed_jobs: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `dashboard_doctor`.`failed_jobs`&#039; at line 1
 
 -- --------------------------------------------------------
 
@@ -102,12 +101,12 @@ CREATE TABLE `mst_action` (
 --
 
 INSERT INTO `mst_action` (`id`, `code`, `name`, `background`, `color`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'RJ', 'Rawat Jalan', '#000', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(2, 'RI', 'Rawat Inap', '#000', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(3, 'GD', 'Gawat Darurat', '#000', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(4, 'PR', 'Radiologi', '#000', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(5, 'PL', 'Laboratorium', '#000', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(6, 'OK', 'Kamar Bedah', '#000', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL);
+(1, 'RJ', 'Rawat Jalan', '#000', '#fff', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(2, 'RI', 'Rawat Inap', '#000', '#fff', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(3, 'GD', 'Gawat Darurat', '#000', '#fff', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(4, 'PR', 'Radiologi', '#000', '#fff', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(5, 'PL', 'Laboratorium', '#000', '#fff', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(6, 'OK', 'Kamar Bedah', '#000', '#fff', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -135,9 +134,9 @@ CREATE TABLE `mst_assurance` (
 --
 
 INSERT INTO `mst_assurance` (`id`, `code`, `name`, `background`, `color`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'U', 'Umum', '#000', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(2, 'B', 'BPJS', '#000', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(3, 'A', 'Asuransi', '#000', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL);
+(1, 'U', 'Umum', '#000', '#fff', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(2, 'B', 'BPJS', '#000', '#fff', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(3, 'A', 'Asuransi', '#000', '#fff', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -162,8 +161,8 @@ CREATE TABLE `mst_gender` (
 --
 
 INSERT INTO `mst_gender` (`id`, `name`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'Laki-laki', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(2, 'Perempuan', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL);
+(1, 'Laki-laki', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(2, 'Perempuan', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -191,13 +190,13 @@ CREATE TABLE `mst_hospital` (
 --
 
 INSERT INTO `mst_hospital` (`id`, `code`, `name`, `background`, `color`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'RSIM', 'RS Islam Muhammadiyah Sumberrejo', '#000', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(2, 'RSASFT', 'RS \'Aisyiyah Siti Fatimah Tulangan', '#f10', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(3, 'RSSKMCS', 'RS Siti Khodijah Muhammadiyah Cabang Sepanjang', '#ff0', '#000', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(4, 'RSAB', 'RS \'Aisyiyah Bojonegoro ', '#f0f', '#000', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(5, 'RSIAMM', 'RSIA Muhammadiyah Malang', '#0ff', '#000', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(6, 'RSIAM', 'RS Islam \'Aisyiyah Malang', '#02f', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(7, 'RSMSU', 'RSU Muhammadiyah Sumatera Utara', '#fff', '#000', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL);
+(1, 'RSIM', 'RS Islam Muhammadiyah Sumberrejo', '#000', '#fff', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(2, 'RSASFT', 'RS \'Aisyiyah Siti Fatimah Tulangan', '#f10', '#fff', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(3, 'RSSKMCS', 'RS Siti Khodijah Muhammadiyah Cabang Sepanjang', '#ff0', '#000', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(4, 'RSAB', 'RS \'Aisyiyah Bojonegoro ', '#f0f', '#000', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(5, 'RSIAMM', 'RSIA Muhammadiyah Malang', '#0ff', '#000', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(6, 'RSIAM', 'RS Islam \'Aisyiyah Malang', '#02f', '#fff', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(7, 'RSMSU', 'RSU Muhammadiyah Sumatera Utara', '#fff', '#000', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -222,12 +221,12 @@ CREATE TABLE `mst_religion` (
 --
 
 INSERT INTO `mst_religion` (`id`, `name`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'Islam', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(2, 'Katholik', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(3, 'Protestan', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(4, 'Konghucu', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(5, 'Hindu', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(6, 'Buddha', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL);
+(1, 'Islam', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(2, 'Katholik', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(3, 'Protestan', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(4, 'Konghucu', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(5, 'Hindu', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL),
+(6, 'Buddha', 0, '2023-10-21 11:56:40', 'Migrasi', '2023-10-21 11:56:40', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -255,11 +254,11 @@ CREATE TABLE `mst_visit_method` (
 --
 
 INSERT INTO `mst_visit_method` (`id`, `code`, `name`, `background`, `color`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'A', 'Datang Sendiri', '#000', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(2, 'B', 'Rujukan', '#000', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(3, 'C', 'Gawat Darurat', '#000', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(4, 'D', 'Ditemani Orang Tua', '#000', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(5, 'E', 'Ditemani Istri', '#000', '#fff', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL);
+(1, 'A', 'Datang Sendiri', '#000', '#fff', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(2, 'B', 'Rujukan', '#000', '#fff', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(3, 'C', 'Gawat Darurat', '#000', '#fff', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(4, 'D', 'Ditemani Orang Tua', '#000', '#fff', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(5, 'E', 'Ditemani Istri', '#000', '#fff', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -315,11 +314,13 @@ CREATE TABLE `stg_attributes` (
 --
 
 INSERT INTO `stg_attributes` (`id`, `title`, `value`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'background', 'Warna Latar', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(2, 'code', 'Kode', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(3, 'color', 'Warna', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(4, 'name', 'Nama', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(5, 'title', 'Judul', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL);
+(1, 'background', 'Warna Latar', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(2, 'code', 'Kode', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(3, 'color', 'Warna', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(4, 'name', 'Nama', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(5, 'password', 'Kata Sandi', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(6, 'title', 'Judul', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(7, 'username', 'Username', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -365,10 +366,10 @@ CREATE TABLE `stg_group_menu` (
 --
 
 INSERT INTO `stg_group_menu` (`id`, `name`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, '1', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(2, '2', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(3, '3', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL),
-(4, '4', 0, '2023-10-20 22:53:21', 'Migrasi', '2023-10-20 22:53:21', NULL, NULL, NULL);
+(1, '1', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(2, '2', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(3, '3', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(4, '4', 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -397,12 +398,12 @@ CREATE TABLE `stg_login` (
 --
 
 INSERT INTO `stg_login` (`id`, `username`, `password`, `email_verified_at`, `remember_token`, `user_id`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'developer', '$2y$10$8iOQDjRu9DiMxLWRWhTIpOJ/9PqkzarRKWYOO5naCBo4SVkrkJeNu', NULL, NULL, 1, 0, '2023-10-20 22:53:22', 'Migrasi', '2023-10-20 22:53:22', NULL, NULL, NULL),
-(2, 'dokter', '$2y$10$6orQuPvuhh6m7.LaMH2E.eXl8DlcvC/OFKtnNyiqlBslA.841t59y', NULL, NULL, 2, 0, '2023-10-20 22:53:22', 'Migrasi', '2023-10-20 22:53:22', NULL, NULL, NULL),
-(3, 'admin_1', '$2y$10$4WHyXE6tgW4PzWJ/xXQYpePC9wbq8YWuJBlmoAcneP5to.Y2TBpiS', NULL, NULL, 3, 0, '2023-10-20 22:53:22', 'Migrasi', '2023-10-20 22:53:22', NULL, NULL, NULL),
-(4, 'admin_2', '$2y$10$wRm97GDcs2I5gCe.UP94HulNujrq/2CpYo6nFQ3qFsZnADFnRby1a', NULL, NULL, 4, 0, '2023-10-20 22:53:22', 'Migrasi', '2023-10-20 22:53:22', NULL, NULL, NULL),
-(5, 'admin_3', '$2y$10$kL2xptXh4bfjgJ029cFgG.apAWlEZr0hlbP184w8YhD57jNwpzcCi', NULL, NULL, 5, 0, '2023-10-20 22:53:22', 'Migrasi', '2023-10-20 22:53:22', NULL, NULL, NULL),
-(6, 'administrator', '$2y$10$uRxdrF8UddxfvAFyLcStWufl6mEKRhIe6LWy6N5SV7m3HuLwHITIm', NULL, NULL, 6, 0, '2023-10-20 22:53:22', 'Migrasi', '2023-10-20 22:53:22', NULL, NULL, NULL);
+(1, 'developer', '$2y$10$bjtdT6YcMOQ/IPTSIg3BA.maMz3/a9F.Q6Sc4tk1e3SBX4CAk6MSe', NULL, NULL, 1, 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(2, 'dokter', '$2y$10$9mh6qLWrr13KZKaGf5jStOB8sMd0juJ.0.q7SRiVa1d1/juPjUjde', NULL, NULL, 2, 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(3, 'admin_1', '$2y$10$GysfpC5pUBDEq43baD67HufPBJs7qZmDHuv2xgEyyy3JNxjBQ0L4a', NULL, NULL, 3, 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(4, 'admin_2', '$2y$10$fA0ep30MIrJ5aNINVuP5AuussKySZDygOLx2XHtPKvth/p4G8PxvW', NULL, NULL, 4, 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(5, 'admin_3', '$2y$10$mELcfPQeyrQP66TplcXAmOG2FdzR2lrkKTEwbSq5QBiO/jaWgc8wO', NULL, NULL, 5, 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL),
+(6, 'administrator', '$2y$10$uJahpywbHkGE.9G6/cRkT.tHZGE9Jq/YAvJc3naW8ZvUz3OLob9I2', NULL, NULL, 6, 0, '2023-10-21 11:56:41', 'Migrasi', '2023-10-21 11:56:41', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -433,11 +434,11 @@ CREATE TABLE `stg_main_menu` (
 --
 
 INSERT INTO `stg_main_menu` (`id`, `title`, `icon`, `url`, `is_parent`, `is_login`, `is_shown`, `order_no`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'Dashboard', 'entypo-gauge', '/', 0, 1, 1, 1, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(2, 'Master', 'entypo-layout', NULL, 1, 1, 1, 3, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(3, 'Pengaturan', 'entypo-cog', NULL, 1, 1, 1, 4, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(4, 'Manajemen', 'entypo-docs', NULL, 1, 1, 1, 2, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(5, 'Profile', '/entypo-user', '/profil', 0, 1, 0, 5, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL);
+(1, 'Dashboard', 'entypo-gauge', '/', 0, 1, 1, 1, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(2, 'Master', 'entypo-layout', NULL, 1, 1, 1, 3, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(3, 'Pengaturan', 'entypo-cog', NULL, 1, 1, 1, 4, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(4, 'Manajemen', 'entypo-docs', NULL, 1, 1, 1, 2, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(5, 'Profile', '/entypo-user', '/profil', 0, 1, 0, 5, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -469,19 +470,19 @@ CREATE TABLE `stg_menu` (
 --
 
 INSERT INTO `stg_menu` (`id`, `title`, `icon`, `url`, `is_parent`, `is_login`, `is_shown`, `order_no`, `main_menu_id`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'Rumah Sakit', NULL, '/master/hospital', 0, 1, 1, 1, 2, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(2, 'Cara Kunjung', NULL, '/master/visit-method', 0, 1, 1, 2, 2, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(3, 'Tindakan', NULL, '/master/action', 0, 1, 1, 3, 2, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(4, 'Jaminan', NULL, '/master/assurance', 0, 1, 1, 4, 2, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(5, 'Menu Akses', NULL, '/setting/menu-access', 0, 1, 1, 5, 3, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(6, 'Pengguna', NULL, '/setting/user', 0, 1, 1, 6, 3, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(7, 'Data Akses', NULL, '/setting/data-access', 0, 1, 1, 7, 3, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(8, 'Pasien', NULL, '/management/patient', 0, 1, 1, 8, 4, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(9, 'Peran', NULL, '/setting/role', 0, 1, 1, 9, 3, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(10, 'Grup Menu', NULL, '/setting/group-menu', 0, 1, 1, 10, 3, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(11, 'Provider', NULL, '/setting/provider', 0, 1, 1, 11, 3, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(12, 'Agama', NULL, '/master/religion', 0, 1, 1, 12, 2, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(13, 'Jenis Kelamin', NULL, '/master/gender', 0, 1, 1, 13, 2, 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL);
+(1, 'Rumah Sakit', NULL, '/master/hospital', 0, 1, 1, 1, 2, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(2, 'Cara Kunjung', NULL, '/master/visit-method', 0, 1, 1, 2, 2, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(3, 'Tindakan', NULL, '/master/action', 0, 1, 1, 3, 2, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(4, 'Jaminan', NULL, '/master/assurance', 0, 1, 1, 4, 2, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(5, 'Menu Akses', NULL, '/setting/menu-access', 0, 1, 1, 5, 3, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(6, 'Pengguna', NULL, '/setting/user', 0, 1, 1, 6, 3, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(7, 'Data Akses', NULL, '/setting/data-access', 0, 1, 1, 7, 3, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(8, 'Pasien', NULL, '/management/patient', 0, 1, 1, 8, 4, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(9, 'Peran', NULL, '/setting/role', 0, 1, 1, 9, 3, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(10, 'Grup Menu', NULL, '/setting/group-menu', 0, 1, 1, 10, 3, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(11, 'Provider', NULL, '/setting/provider', 0, 1, 1, 11, 3, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(12, 'Agama', NULL, '/master/religion', 0, 1, 1, 12, 2, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(13, 'Jenis Kelamin', NULL, '/master/gender', 0, 1, 1, 13, 2, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -509,6 +510,72 @@ CREATE TABLE `stg_menu_access` (
   `deleted_at` datetime DEFAULT NULL,
   `deleted_by` varchar(191) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `stg_menu_access`
+--
+
+INSERT INTO `stg_menu_access` (`id`, `group_menu_id`, `main_menu_id`, `menu_id`, `submenu_id`, `add`, `edit`, `delete`, `detail`, `view`, `approval`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
+(1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(2, 1, 5, 0, 0, 0, 1, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(3, 1, 2, 1, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(4, 1, 2, 2, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(5, 1, 2, 3, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(6, 1, 2, 4, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(7, 1, 3, 5, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(8, 1, 3, 6, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(9, 1, 3, 7, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(10, 1, 4, 8, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(11, 1, 3, 9, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(12, 1, 3, 10, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(13, 1, 3, 11, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(14, 1, 2, 12, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(15, 1, 2, 13, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(16, 2, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(17, 2, 5, 0, 0, 0, 1, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(18, 2, 2, 1, 0, 0, 0, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(19, 2, 2, 2, 0, 0, 0, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(20, 2, 2, 3, 0, 0, 0, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(21, 2, 2, 4, 0, 0, 0, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(22, 2, 3, 5, 0, 0, 0, 0, 0, 0, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(23, 2, 3, 6, 0, 0, 0, 0, 0, 0, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(24, 2, 3, 7, 0, 0, 0, 0, 0, 0, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(25, 2, 4, 8, 0, 0, 0, 0, 0, 0, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(26, 2, 3, 9, 0, 0, 0, 0, 0, 0, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(27, 2, 3, 10, 0, 0, 0, 0, 0, 0, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(28, 2, 3, 11, 0, 0, 0, 0, 0, 0, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(29, 2, 2, 12, 0, 0, 0, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(30, 2, 2, 13, 0, 0, 0, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(31, 3, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(32, 3, 5, 0, 0, 0, 1, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(33, 3, 2, 1, 0, 0, 0, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(34, 3, 2, 2, 0, 0, 0, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(35, 3, 2, 3, 0, 0, 0, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(36, 3, 2, 4, 0, 0, 0, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(37, 3, 3, 5, 0, 0, 0, 0, 0, 0, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(38, 3, 3, 6, 0, 0, 0, 0, 0, 0, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(39, 3, 3, 7, 0, 0, 0, 0, 0, 0, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(40, 3, 4, 8, 1, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(41, 3, 3, 9, 0, 0, 0, 0, 0, 0, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(42, 3, 3, 10, 0, 0, 0, 0, 0, 0, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(43, 3, 3, 11, 0, 0, 0, 0, 0, 0, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(44, 3, 2, 12, 0, 0, 0, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(45, 3, 2, 13, 0, 0, 0, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(46, 4, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(47, 4, 5, 0, 0, 0, 1, 0, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(48, 4, 2, 1, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(49, 4, 2, 2, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(50, 4, 2, 3, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(51, 4, 2, 4, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(52, 4, 3, 5, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(53, 4, 3, 6, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(54, 4, 3, 7, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(55, 4, 4, 8, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(56, 4, 3, 9, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(57, 4, 3, 10, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(58, 4, 3, 11, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(59, 4, 2, 12, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(60, 4, 2, 13, 0, 1, 1, 1, 1, 1, 0, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -559,7 +626,7 @@ CREATE TABLE `stg_provider` (
 --
 
 INSERT INTO `stg_provider` (`id`, `provider_npwp`, `provider_name`, `provider_birth_place`, `provider_birth_date`, `provider_email`, `provider_phone_number`, `provider_home_number`, `provider_address_1`, `provider_address_2`, `provider_address_3`, `provider_district_id`, `provider_ward`, `provider_logo`, `provider_picture`, `owner_npwp`, `owner_nik`, `owner_name`, `owner_birth_place`, `owner_birth_date`, `owner_email`, `owner_phone_number`, `owner_home_number`, `owner_address_1`, `owner_address_2`, `owner_address_3`, `owner_district_id`, `owner_ward`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, '0', 'Dashboard Pasien Monitoring', NULL, NULL, 'lawu@lawuit.co.id', '123321', '123321', 'Bekasi', NULL, NULL, NULL, NULL, 'favicon.ico', 'logo.png', NULL, NULL, 'LAWU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-10-20 22:53:25', 'Migrasi', '2023-10-20 22:53:25', NULL, NULL, NULL);
+(1, '0', 'Dashboard Pasien Monitoring', NULL, NULL, 'lawu@lawuit.co.id', '123321', '123321', 'Bekasi', NULL, NULL, NULL, NULL, 'favicon.ico', 'logo.png', NULL, NULL, 'LAWU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -584,12 +651,12 @@ CREATE TABLE `stg_role` (
 --
 
 INSERT INTO `stg_role` (`id`, `name`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, 'Developer', 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(2, 'Dokter', 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(3, 'Dewa', 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(4, 'Admin 1', 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(5, 'Admin 2', 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL),
-(6, 'Admin 3', 0, '2023-10-20 22:53:24', 'Migrasi', '2023-10-20 22:53:24', NULL, NULL, NULL);
+(1, 'Developer', 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(2, 'Dokter', 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(3, 'Dewa', 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(4, 'Admin 1', 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(5, 'Admin 2', 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(6, 'Admin 3', 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -603,7 +670,7 @@ CREATE TABLE `stg_user` (
   `full_name` varchar(191) NOT NULL,
   `gender` enum('l','p') NOT NULL,
   `birth_place` varchar(191) DEFAULT NULL,
-  `birth_date` date DEFAULT '2023-10-20',
+  `birth_date` date DEFAULT '2023-10-21',
   `email` varchar(191) DEFAULT NULL,
   `phone_number` varchar(191) DEFAULT NULL,
   `home_number` varchar(191) DEFAULT NULL,
@@ -629,12 +696,12 @@ CREATE TABLE `stg_user` (
 --
 
 INSERT INTO `stg_user` (`id`, `nik`, `full_name`, `gender`, `birth_place`, `birth_date`, `email`, `phone_number`, `home_number`, `address_1`, `address_2`, `address_3`, `religion_id`, `role_id`, `group_menu_id`, `picture`, `picture_name`, `disabled`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `deleted_by`) VALUES
-(1, '123', 'Developer', 'l', NULL, '2023-10-20', 'developer@dev.com', NULL, NULL, NULL, NULL, NULL, 1, 1, 1, '/images/thumb-1.png', 'thumb-1.png', 0, '2023-10-20 22:53:25', 'Migrasi', '2023-10-20 22:53:25', NULL, NULL, NULL),
-(2, '321', 'Dokter', 'l', NULL, '2023-10-20', 'dokter@doc.com', NULL, NULL, NULL, NULL, NULL, 1, 2, 2, '/images/thumb-1.png', 'thumb-1.png', 0, '2023-10-20 22:53:25', 'Migrasi', '2023-10-20 22:53:25', NULL, NULL, NULL),
-(3, '001', 'Admin 1', 'l', NULL, '2023-10-20', 'admin@admin1.com', NULL, NULL, NULL, NULL, NULL, 1, 3, 3, '/images/thumb-1.png', 'thumb-1.png', 0, '2023-10-20 22:53:25', 'Migrasi', '2023-10-20 22:53:25', NULL, NULL, NULL),
-(4, '002', 'Admin 2', 'l', NULL, '2023-10-20', 'admin@admin2.com', NULL, NULL, NULL, NULL, NULL, 1, 4, 3, '/images/thumb-1.png', 'thumb-1.png', 0, '2023-10-20 22:53:25', 'Migrasi', '2023-10-20 22:53:25', NULL, NULL, NULL),
-(5, '003', 'Admin 3', 'l', NULL, '2023-10-20', 'admin@admin3.com', NULL, NULL, NULL, NULL, NULL, 1, 5, 3, '/images/thumb-1.png', 'thumb-1.png', 0, '2023-10-20 22:53:25', 'Migrasi', '2023-10-20 22:53:25', NULL, NULL, NULL),
-(6, '123123', 'Administrator', 'l', NULL, '2023-10-20', 'administrator@administrator.com', NULL, NULL, NULL, NULL, NULL, 1, 6, 4, '/images/thumb-1.png', 'thumb-1.png', 0, '2023-10-20 22:53:25', 'Migrasi', '2023-10-20 22:53:25', NULL, NULL, NULL);
+(1, '123', 'Developer', 'l', NULL, '2023-10-21', 'developer@dev.com', NULL, NULL, NULL, NULL, NULL, 1, 1, 1, '/images/thumb-1.png', 'thumb-1.png', 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(2, '321', 'Dokter', 'l', NULL, '2023-10-21', 'dokter@doc.com', NULL, NULL, NULL, NULL, NULL, 1, 2, 2, '/images/thumb-1.png', 'thumb-1.png', 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(3, '001', 'Admin 1', 'l', NULL, '2023-10-21', 'admin@admin1.com', NULL, NULL, NULL, NULL, NULL, 1, 3, 3, '/images/thumb-1.png', 'thumb-1.png', 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(4, '002', 'Admin 2', 'l', NULL, '2023-10-21', 'admin@admin2.com', NULL, NULL, NULL, NULL, NULL, 1, 4, 3, '/images/thumb-1.png', 'thumb-1.png', 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(5, '003', 'Admin 3', 'l', NULL, '2023-10-21', 'admin@admin3.com', NULL, NULL, NULL, NULL, NULL, 1, 5, 3, '/images/thumb-1.png', 'thumb-1.png', 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL),
+(6, '123123', 'Administrator', 'l', NULL, '2023-10-21', 'administrator@administrator.com', NULL, NULL, NULL, NULL, NULL, 1, 6, 4, '/images/thumb-1.png', 'thumb-1.png', 0, '2023-10-21 11:56:43', 'Migrasi', '2023-10-21 11:56:43', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -863,7 +930,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `stg_attributes`
 --
 ALTER TABLE `stg_attributes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `stg_data_access`
@@ -899,7 +966,7 @@ ALTER TABLE `stg_menu`
 -- AUTO_INCREMENT untuk tabel `stg_menu_access`
 --
 ALTER TABLE `stg_menu_access`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT untuk tabel `stg_provider`

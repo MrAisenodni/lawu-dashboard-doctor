@@ -12,7 +12,7 @@ class CreateStgUser extends Migration
             $table->id();
             $table->string('nik', 16)->unique();
             $table->string('full_name');
-            $table->enum('gender', ['l', 'p']);
+            $table->unsignedInteger('gender_id')->nullable(); 
             $table->string('birth_place')->nullable();
             $table->date('birth_date')->default(now())->nullable();
             $table->string('email')->unique()->nullable();

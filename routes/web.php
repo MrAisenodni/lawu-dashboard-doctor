@@ -13,7 +13,9 @@ use App\Http\Controllers\Masters\{
 
 use App\Http\Controllers\Settings\{
     GroupMenuController,
+    MenuAccessController,
     RoleController,
+    UserController,
 };
 
 use Illuminate\Support\Facades\Route;
@@ -46,5 +48,7 @@ Route::middleware('authcheck')->group(function() {
 
     // Settings Routes
     Route::resource('/setting/group-menu', GroupMenuController::class);
+    Route::resource('/setting/menu-access', MenuAccessController::class);
     Route::resource('/setting/role', RoleController::class);
+    Route::resource('/setting/user', UserController::class);
 });

@@ -1,8 +1,24 @@
 title;value
+address_1;Alamat
+address_2;RT
+address_3;RW
 background;Warna Latar
+birth_date; Tanggal Lahir
+birth_place; Tempat Lahir
 code;Kode
 color;Warna
+email;E-Mail
+full_name;Nama Lengkap
+group_menu;Grup Menu
+gender;Jenis Kelamin
+home_number;Nomor Telepon
 name;Nama
+nik;NIK
 password;Kata Sandi
+picture;Foto
+picture_name;Nama Foto
+phone_number;Nomor HP
+religion;Agama
+role;Peran
 title;Judul
 username;Username

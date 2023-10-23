@@ -17,7 +17,7 @@
         <a href="/"><i class="fa-home"></i>Dashboard</a>
         </li>
         <li>
-            <a href="#">Master</a>
+            <a href="#">Pengaturan</a>
         </li>
         <li class="active">
             <strong>{{ $c_menu->title }}</strong>

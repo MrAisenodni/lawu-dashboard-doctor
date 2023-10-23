@@ -13,7 +13,7 @@ class Menu extends Model
 
     public function main_menu()
     {
-        return $this->belongsTo(MainMenu::class, 'main_menu_id', 'id')->select('id', 'title', 'url', 'icon', 'main_menu_id', 'is_parent')->where('disabled', 0)->where('is_shown', 1)->orderBy('order_no');
+        return $this->belongsTo(MainMenu::class, 'main_menu_id', 'id')->select('id', 'title', 'url', 'icon', 'is_parent')->where('disabled', 0)->where('is_shown', 1)->orderBy('order_no');
     }
 
     public function menu_access()

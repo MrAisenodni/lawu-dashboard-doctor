@@ -17,7 +17,7 @@
         <a href="/"><i class="fa-home"></i>Dashboard</a>
         </li>
         <li>
-            <a href="#">Master</a>
+            <a href="#">Pengaturan</a>
         </li>
         <li class="active">
             <strong>{{ $c_menu->title }}</strong>
@@ -52,41 +52,10 @@
                         @csrf
                         @method('PUT')
                         <div class="row form-group pt-0">
-                            <div class="col-lg-3 col-xs-12 mb-5">
-                                <label for="code" class="control-label">Kode</label>
-                                <input type="text" class="form-control @error('code') validate-has-error @enderror" id="code" name="code" value="{{ old('code', $detail->code) }}">
-                                @error('code')
-                                    <span id="name-error" class="validate-has-error">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <div class="col-lg-3 col-xs-12 mb-5">
+                            <div class="col-lg-12 col-xs-12 mb-5">
                                 <label for="name" class="control-label">{{ $c_menu->title }}</label>
                                 <input type="text" class="form-control @error('name') validate-has-error @enderror" id="name" name="name" value="{{ old('name', $detail->name) }}">
                                 @error('name')
-                                    <span id="name-error" class="validate-has-error">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <div class="col-lg-3 col-xs-12 mb-5">
-                                <label for="color" class="control-label">Warna</label>
-                                <div class="input-group @error('color') validate-has-error @enderror">
-                                    <input id="color" name="color" type="text" class="form-control colorpicker" data-format="hex" value="{{ old('color', $detail->color) }}" />
-                                    <div class="input-group-addon">
-                                        <i class="color-preview"></i>
-                                    </div>
-                                </div>
-                                @error('color')
-                                    <span id="name-error" class="validate-has-error">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <div class="col-lg-3 col-xs-12 mb-5">
-                                <label for="background" class="control-label">Warna Latar</label>
-                                <div class="input-group @error('background') validate-has-error @enderror">
-                                    <input id="background" name="background" type="text" class="form-control colorpicker" data-format="hex" value="{{ old('background', $detail->background) }}" />
-                                    <div class="input-group-addon">
-                                        <i class="color-preview"></i>
-                                    </div>
-                                </div>
-                                @error('background')
                                     <span id="name-error" class="validate-has-error">{{ $message }}</span>
                                 @enderror
                             </div>

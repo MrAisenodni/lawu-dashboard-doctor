@@ -348,3 +348,8 @@ body {
 .bg-white {
 	background: white;
 }
+
+/* Font Weight */
+.fw-bold {
+	font-weight: bold;
+}
