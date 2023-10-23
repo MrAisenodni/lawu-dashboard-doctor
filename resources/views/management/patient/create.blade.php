@@ -256,7 +256,7 @@
                                     <div class="col-lg-3 col-xs-12 mb-5">
                                         <label for="registration_date" class="control-label">Tanggal Registrasi <span class="text-danger">*</span></label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control datepicker @error('registration_date') validate-has-error @enderror" id="registration_date" name="registration_date" value="{{ old('registration_date') }}">
+                                            <input type="text" class="form-control datepicker @error('registration_date') validate-has-error @enderror" id="registration_date" name="registration_date" value="{{ old('registration_date', date('m/d/Y', strtotime(now()))) }}">
                                             <div class="input-group-addon">
                                                 <a href="#"><i class="entypo-calendar"></i></a>
                                             </div>
