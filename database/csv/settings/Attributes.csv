@@ -1,24 +1,50 @@
 title;value
+action;Tindakan
 address_1;Alamat
 address_2;RT
 address_3;RW
+alias_name;Nama Alias
+allergy;Alergi
+assurance;Jaminan
 background;Warna Latar
+blood_type;Golongan Darah
 birth_date; Tanggal Lahir
 birth_place; Tempat Lahir
+citizen;Kewarganegaraan
+city;Kota
+clinic;Klinik
 code;Kode
 color;Warna
+country;Negara
+district;Kecamatan
+doctor;Dokter
+doctor_reference;Referensi Dokter
+education;Edukasi
 email;E-Mail
 full_name;Nama Lengkap
 group_menu;Grup Menu
 gender;Jenis Kelamin
 home_number;Nomor Telepon
+hospital;Rumah Sakit
+inisial_name;Nama Inisial
+marital_status;Status Perkawinan
 name;Nama
 nik;NIK
+occupation;Pekerjaan
 password;Kata Sandi
+payment_method;Metode Pembayaran
+post_code;Kode Pos
 picture;Foto
 picture_name;Nama Foto
 phone_number;Nomor HP
+registration_date;Tanggal Registrasi
+registration_no;Nomor Registrasi
 religion;Agama
+rm_no;Nomor RM
 role;Peran
 title;Judul
+unit;Unit
 username;Username
+visit_method;Cara Kunjung
+visit_time;Waktu Kunjung
+ward;Kelurahan

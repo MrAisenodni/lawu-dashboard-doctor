@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\Management\PatientController;
 
 use App\Http\Controllers\Masters\{
     ActionController,
@@ -37,6 +38,9 @@ Route::get('/logout', [PageController::class, 'logout']);
 
 Route::middleware('authcheck')->group(function() {
     Route::get('/', [PageController::class, 'index']);
+
+    // Management Routes
+    Route::resource('/management/patient', PatientController::class);
 
     // Master Routes
     Route::resource('/master/action', ActionController::class);
