@@ -74,7 +74,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-lg-6 col-xs-12 mb-5">
-                                        <label for="full_name" class="control-label">Nama Lengkap <span class="text-danger">*</span></label>
+                                        <label for="full_name" class="control-label">Nama Lengkap <span class="text-danger">(*) wajib diisi</span></label>
                                         <input type="text" class="form-control @error('full_name') validate-has-error @enderror" id="full_name" name="full_name" value="{{ old('full_name') }}">
                                         @error('full_name')
                                             <span id="name-error" class="validate-has-error">{{ $message }}</span>
@@ -240,21 +240,21 @@
                             <div class="col-lg-12">
                                 <div class="row">
                                     <div class="col-lg-3 col-xs-12 mb-5">
-                                        <label for="rm_no" class="control-label">Nomor RM <span class="text-danger">*</span></label>
+                                        <label for="rm_no" class="control-label">Nomor RM <span class="text-danger">(*) wajib diisi</span></label>
                                         <input type="text" class="form-control @error('rm_no') validate-has-error @enderror" id="rm_no" name="rm_no" value="{{ old('rm_no') }}">
                                         @error('rm_no')
                                             <span id="name-error" class="validate-has-error">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-lg-3 col-xs-12 mb-5">
-                                        <label for="registration_no" class="control-label">Nomor Registrasi <span class="text-danger">*</span></label>
+                                        <label for="registration_no" class="control-label">Nomor Registrasi <span class="text-danger">(*) wajib diisi</span></label>
                                         <input type="text" class="form-control @error('registration_no') validate-has-error @enderror" id="registration_no" name="registration_no" value="{{ old('registration_no') }}">
                                         @error('registration_no')
                                             <span id="name-error" class="validate-has-error">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-lg-3 col-xs-12 mb-5">
-                                        <label for="registration_date" class="control-label">Tanggal Registrasi <span class="text-danger">*</span></label>
+                                        <label for="registration_date" class="control-label">Tanggal Registrasi <span class="text-danger">(*) wajib diisi</span></label>
                                         <div class="input-group">
                                             <input type="text" class="form-control datepicker @error('registration_date') validate-has-error @enderror" id="registration_date" name="registration_date" value="{{ old('registration_date', date('m/d/Y', strtotime(now()))) }}">
                                             <div class="input-group-addon">
@@ -276,7 +276,7 @@
 
                                 <div class="row">
                                     <div class="col-lg-4 col-xs-12 mb-5">
-                                        <label for="action" class="control-label">Tindakan <span class="text-danger">*</span></label>
+                                        <label for="action" class="control-label">Tindakan <span class="text-danger">(*) wajib diisi</span></label>
                                         <select id="action" name="action" class="select2 @error('action') validate-has-error @enderror" data-allow-clear="true" data-placeholder="Pilih Tindakan">
                                             <option></option>
                                             @if ($actions)
@@ -290,7 +290,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-lg-4 col-xs-12 mb-5">
-                                        <label for="assurance" class="control-label">Jaminan <span class="text-danger">*</span></label>
+                                        <label for="assurance" class="control-label">Jaminan <span class="text-danger">(*) wajib diisi</span></label>
                                         <select id="assurance" name="assurance" class="select2 @error('assurance') validate-has-error @enderror" data-allow-clear="true" data-placeholder="Pilih Jaminan">
                                             <option></option>
                                             @if ($assurances)
@@ -335,7 +335,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-lg-4 col-xs-12 mb-5">
-                                        <label for="hospital" class="control-label">Rumah Sakit <span class="text-danger">*</span></label>
+                                        <label for="hospital" class="control-label">Rumah Sakit <span class="text-danger">(*) wajib diisi</span></label>
                                         <select id="hospital" name="hospital" class="select2 @error('hospital') validate-has-error @enderror" data-allow-clear="true" data-placeholder="Pilih Rumah Sakit">
                                             <option></option>
                                             @if ($hospitals)
@@ -380,7 +380,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-lg-4 col-xs-12 mb-5">
-                                        <label for="visit_method" class="control-label">Cara Kunjung <span class="text-danger">*</span></label>
+                                        <label for="visit_method" class="control-label">Cara Kunjung <span class="text-danger">(*) wajib diisi</span></label>
                                         <select id="visit_method" name="visit_method" class="select2 @error('visit_method') validate-has-error @enderror" data-allow-clear="true" data-placeholder="Pilih Cara Kunjung">
                                             <option></option>
                                             @if ($visit_methods)
