@@ -16,7 +16,7 @@ class ActionSeeder extends CsvSeeder
             'created_by'    => 'Migrasi',
             'created_at'    => now(),
         ];
-        $this->mapping = ['code', 'name', 'background', 'color'];
+        $this->mapping = ['code', 'name', 'background', 'color', 'disabled'];
     }
 
     public function run()
