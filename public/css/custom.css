@@ -353,3 +353,8 @@ body {
 .fw-bold {
 	font-weight: bold;
 }
+
+/* Header */
+.p-10 {
+	padding: 10px;
+}

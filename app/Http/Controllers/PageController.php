@@ -9,17 +9,22 @@ class PageController extends Controller
 {
     public function index()
     {
+        $data_access = $this->data_access->where('role_id', session()->get('srole_id'))->first();
+
         $data = [
             'c_menu'            => $this->main_menu->select('id', 'title')->where('disabled', 0)->where('url', '/')->first(),
             'actions'           => $this->action->select('id', 'code', 'name', 'color', 'background')->where('disabled', 0)->get(),
             'assurances'        => $this->assurance->select('id', 'code', 'name', 'color', 'background')->where('disabled', 0)->get(),
             'hospitals'         => $this->hospital->select('id', 'code', 'name', 'color', 'background')->where('disabled', 0)->get(),
             'visit_methods'     => $this->visit_method->select('id', 'code', 'name', 'color', 'background')->where('disabled', 0)->get(),
-            // 'sysmenu'           => DB::table('information_schema.INNODB_SYS_TABLES')->selectRaw("REPLACE(name, 'dashboard_doctor/', '') AS table_name")->where('name', 'LIKE', 'dashboard_doctor%')->orderBy('name')->get(),
         ];
         $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
             ->where('group_menu_id', session()->get('sgroup_menu_id'))->where('main_menu_id', $data['c_menu']->id)->first();
         if ($data['access']->view == 0) abort(403);
+
+        // Filter berdasarkan Data Akses
+        if ($data_access)
+            $data[$data_access->module_name] = $this->modules[$data_access->table_name]->select('id', 'code', 'name', 'color', 'background')->whereRaw($data_access->condition)->get();
 
         // Hitung Jumlah per Tindakan (mst_action) dan Rumah Sakit
         if ($data['hospitals']) {
@@ -29,11 +34,6 @@ class PageController extends Controller
                 if ($data['actions']) {
                     foreach ($data['actions'] as $action) {
                         $data['data']['hospital_' . $hospital_id]['action_' . $action->id] = $this->action->getPatient($hospital_id, $action->id);
-                        // $data['data']['hospital_' . $hospital_id] += [
-                        //     'action_background_' . $action->id    => $action->background,
-                        //     'action_color_' . $action->id    => $action->color,
-                        //     'action_name_' . $action->id    => $action->name,
-                        // ];
                     }
                 }
 

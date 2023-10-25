@@ -225,7 +225,15 @@
                             <div class="tile-stats tile-red" style="background: {{ $item->background }}">
                                 <div class="icon"><i class="entypo-users"></i></div>
                                 <h4 style="color: {{ $item->color }}">Total Pasien</h4>
-                                <div class="num" style="color: {{ $item->color }}" data-start="0" data-end="@if ($item->patients) {{ $item->patients->count() }} @endif" data-postfix="" data-duration="1000" data-delay="0">@if ($item->patients) {{ $item->patients->count() }} @endif</div>
+                                <h2 class="fw-bold" style="color: {{ $item->color }}; margin-bottom: 5px; margin-top: 5px" data-start="0" data-end="
+                                    @if ($item->patients)
+                                        {{ $item->patients->count() }} 
+                                    @endif" data-postfix="" data-duration="1000" data-delay="0"
+                                >
+                                    @if ($item->patients) 
+                                        {{ $item->patients->count() }} 
+                                    @endif
+                                </h2>
 
                                 @if ($assurances)
                                     @foreach ($assurances as $assurance)
@@ -257,7 +265,15 @@
                                         <div class="tile-stats tile-red" style="background: {{ $action->background }}">
                                             <div class="icon"><i class="entypo-users"></i></div>
                                             <h4 style="color: {{ $action->color }}">Total Pasien {{ $action->name }}</h4>
-                                            <div class="num" style="color: {{ $action->color }}" data-start="0" data-end="@if ($data['hospital_' . $item->id]['action_' . $action->id]) {{ $data['hospital_' . $item->id]['action_' . $action->id] }} @endif" data-postfix="" data-duration="1000" data-delay="0">@if ($data['hospital_' . $item->id]['action_' . $action->id]) {{ $data['hospital_' . $item->id]['action_' . $action->id] }} @endif</div>
+                                            <h2 class="fw-bold" style="color: {{ $action->color }}; margin-bottom: 5px; margin-top: 5px" data-start="0" 
+                                                data-end="@if ($data['hospital_' . $item->id]['action_' . $action->id]) 
+                                                    {{ $data['hospital_' . $item->id]['action_' . $action->id] }} 
+                                                @endif" data-postfix="" data-duration="1000" data-delay="0"
+                                            >
+                                                @if ($data['hospital_' . $item->id]['action_' . $action->id]) 
+                                                    {{ $data['hospital_' . $item->id]['action_' . $action->id] }} 
+                                                @endif
+                                            </h2>
                                         </div>
                                     </div>
                                 @endif

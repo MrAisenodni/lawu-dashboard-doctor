@@ -11,6 +11,8 @@ class HospitalController extends Controller
 
     public function index()
     {
+        $data_access = $this->data_access->where('role_id', session()->get('srole_id'))->first();
+
         $data = [
             'c_menu'        => $this->menu->select('id', 'title', 'url', 'main_menu_id')->where('disabled', 0)->where('url', $this->path)->first(),
             'data'          => $this->hospital->select('id', 'code', 'name', 'color', 'background')->where('disabled', 0)->get(),
@@ -18,6 +20,10 @@ class HospitalController extends Controller
         $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
             ->where('group_menu_id', session()->get('sgroup_menu_id'))->where('menu_id', $data['c_menu']->id)->first();
         if ($data['access']->view == 0) abort(403);
+
+        // Filter berdasarkan Data Akses
+        if ($data_access)
+            $data['data'] = $this->modules[$data_access->table_name]->select('id', 'code', 'name', 'color', 'background')->whereRaw($data_access->condition)->get();
 
         return view('masters.hospital.index', $data);
     }
@@ -58,6 +64,8 @@ class HospitalController extends Controller
 
     public function show($id)
     {
+        $data_access = $this->data_access->where('role_id', session()->get('srole_id'))->first();
+
         $data = [
             'c_menu'        => $this->menu->select('id', 'title', 'url', 'main_menu_id')->where('disabled', 0)->where('url', $this->path)->first(),
             'detail'        => $this->hospital->select('id', 'code', 'name', 'color', 'background')->where('id', $id)->where('disabled', 0)->first(),
@@ -66,11 +74,26 @@ class HospitalController extends Controller
             ->where('group_menu_id', session()->get('sgroup_menu_id'))->where('menu_id', $data['c_menu']->id)->first();
         if ($data['access']->view == 0 || $data['access']->detail == 0) abort(403);
         
+        // Filter berdasarkan Data Akses
+        if ($data_access)
+        {
+            $check = $this->modules[$data_access->table_name]->select('id', 'code', 'name', 'color', 'background')->whereRaw($data_access->condition)->get();
+            
+            foreach ($check as $item) {
+                if ($item->id == $data['detail']->id) {
+                    return view('masters.hospital.show', $data);
+                } 
+            }
+            abort(403);
+        }
+
         return view('masters.hospital.show', $data);
     }
 
     public function edit($id)
     {
+        $data_access = $this->data_access->where('role_id', session()->get('srole_id'))->first();
+
         $data = [
             'c_menu'        => $this->menu->select('id', 'title', 'url', 'main_menu_id')->where('disabled', 0)->where('url', $this->path)->first(),
             'detail'        => $this->hospital->select('id', 'code', 'name', 'color', 'background')->where('id', $id)->where('disabled', 0)->first(),
@@ -78,7 +101,20 @@ class HospitalController extends Controller
         $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
             ->where('group_menu_id', session()->get('sgroup_menu_id'))->where('menu_id', $data['c_menu']->id)->first();
         if ($data['access']->view == 0 || $data['access']->edit == 0) abort(403);
-        
+            
+        // Filter berdasarkan Data Akses
+        if ($data_access)
+        {
+            $check = $this->modules[$data_access->table_name]->select('id', 'code', 'name', 'color', 'background')->whereRaw($data_access->condition)->get();
+            
+            foreach ($check as $item) {
+                if ($item->id == $data['detail']->id) {
+                    return view('masters.hospital.show', $data);
+                } 
+            }
+            abort(403);
+        }
+
         return view('masters.hospital.edit', $data);
     }
 

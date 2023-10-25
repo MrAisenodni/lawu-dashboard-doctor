@@ -13,6 +13,7 @@ class CreateStgDataAccess extends Migration
             
             $table->unsignedInteger('role_id'); // Join ke Tabel stg_role
             $table->string('title', 100);
+            $table->string('module_name', 100)->nullable();
             $table->string('table_name', 100)->nullable();
             $table->text('condition')->nullable();
                     

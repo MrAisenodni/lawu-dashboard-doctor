@@ -3,13 +3,13 @@
     <!-- logo -->
     <div class="logo">
         <a href="/">
-            <img src="{{ asset($provider->provider_picture) }}" width="120" alt="" />
+            <img src="{{ asset($provider->provider_picture) }}" width="200" alt="" />
         </a>
     </div>
 
     <!-- logo collapse icon -->
     <div class="sidebar-collapse">
-        <a href="#" class="sidebar-collapse-icon"><!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
+        <a href="#" class="sidebar-collapse-icon" style="margin-top: 12px"><!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
             <i class="entypo-menu"></i>
         </a>
     </div>

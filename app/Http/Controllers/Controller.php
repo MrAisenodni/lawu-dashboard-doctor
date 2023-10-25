@@ -12,6 +12,7 @@ use App\Models\Settings\{
     MainMenu,
     Menu,
     MenuAccess,
+    Migrations,
     Provider,
     Role,
     User,
@@ -86,8 +87,14 @@ class Controller extends BaseController
         $this->main_menu                = new MainMenu();
         $this->menu                     = new Menu();
         $this->menu_access              = new MenuAccess();
+        $this->migrations               = new Migrations();
         $this->provider                 = new Provider();
         $this->role                     = new Role();
         $this->user                     = new User();
+
+        // Global Varible Modules Version
+        $this->modules = [
+            'hospital'                  => new Hospital(),
+        ];
     }
 }

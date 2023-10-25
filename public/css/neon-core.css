@@ -5445,7 +5445,7 @@ body {
 }
 .page-container .sidebar-menu .logo-env {
   width: 100%;
-  padding: 35px;
+  padding: 10px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -9784,7 +9784,7 @@ table {
   position: relative;
   display: block;
   background: #303641;
-  padding: 20px;
+  padding: 10px;
   margin-bottom: 10px;
   overflow: hidden;
   -webkit-border-radius: 5px;

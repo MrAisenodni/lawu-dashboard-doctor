@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
 
             // Setting Seeders
             Settings\AttributesSeeder::class,
+            Settings\DataAccessSeeder::class,
             Settings\GroupMenuSeeder::class,
             Settings\LoginSeeder::class,
             Settings\MainMenuSeeder::class,
