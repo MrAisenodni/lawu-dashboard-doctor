@@ -37,7 +37,7 @@
             <div class="login-content">
                 
                 <a href="/" class="logo">
-                    <img src="{{ asset($provider->provider_picture) }}" width="120" alt="" />
+                    <img src="{{ asset($provider->provider_picture) }}" height="75" alt="" />
                 </a>
                 
                 <p class="description text-white">Selamat datang di {{ $provider->provider_name }}</p>
