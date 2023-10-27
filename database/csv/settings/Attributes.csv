@@ -15,6 +15,7 @@ city;Kota
 clinic;Klinik
 code;Kode
 color;Warna
+condition;Kondisi
 country;Negara
 district;Kecamatan
 doctor;Dokter
@@ -28,6 +29,7 @@ home_number;Nomor Telepon
 hospital;Rumah Sakit
 inisial_name;Nama Inisial
 marital_status;Status Perkawinan
+module_name;Nama Modul
 name;Nama
 nik;NIK
 occupation;Pekerjaan
@@ -42,6 +44,8 @@ registration_no;Nomor Registrasi
 religion;Agama
 rm_no;Nomor RM
 role;Peran
+table;Tabel
+table_name;Nama Tabel
 title;Judul
 unit;Unit
 username;Username

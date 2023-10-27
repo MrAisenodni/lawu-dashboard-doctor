@@ -13,6 +13,7 @@ use App\Http\Controllers\Masters\{
 };
 
 use App\Http\Controllers\Settings\{
+    DataAccessController,
     GroupMenuController,
     MenuAccessController,
     RoleController,
@@ -51,6 +52,7 @@ Route::middleware('authcheck')->group(function() {
     Route::resource('/master/visit-method', VisitMethodController::class);
 
     // Settings Routes
+    Route::resource('/setting/data-access', DataAccessController::class);
     Route::resource('/setting/group-menu', GroupMenuController::class);
     Route::resource('/setting/menu-access', MenuAccessController::class);
     Route::resource('/setting/role', RoleController::class);

@@ -12,6 +12,8 @@ class PatientController extends Controller
 
     public function index()
     {
+        $data_access = $this->data_access->where('role_id', session()->get('srole_id'))->first();
+
         $data = [
             'c_menu'            => $this->menu->select('id', 'title', 'url', 'main_menu_id')->where('disabled', 0)->where('url', $this->path)->first(),
             'data'              => $this->patient->where('disabled', 0)->get(),
@@ -20,11 +22,17 @@ class PatientController extends Controller
             ->where('group_menu_id', session()->get('sgroup_menu_id'))->where('menu_id', $data['c_menu']->id)->first();
         if ($data['access']->view == 0) abort(403);
 
+        // Filter berdasarkan Data Akses
+        if ($data_access)
+            $data['data'] = $this->patient->whereRaw('hospital_' . $data_access->condition)->get();
+
         return view('management.patient.index', $data);
     }
 
     public function create()
     {
+        $data_access = $this->data_access->where('role_id', session()->get('srole_id'))->first();
+
         $data = [
             'c_menu'            => $this->menu->select('id', 'title', 'url', 'main_menu_id')->where('disabled', 0)->where('url', $this->path)->first(),
             'actions'           => $this->action->select('id', 'name')->where('disabled', 0)->get(),
@@ -48,6 +56,10 @@ class PatientController extends Controller
         $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
             ->where('group_menu_id', session()->get('sgroup_menu_id'))->where('menu_id', $data['c_menu']->id)->first();
         if ($data['access']->view == 0 || $data['access']->add == 0) abort(403);
+
+        // Filter berdasarkan Data Akses
+        if ($data_access)
+            $data['hospitals'] = $this->modules[$data_access->table_name]->select('id', 'code', 'name', 'color', 'background')->whereRaw($data_access->condition)->get();
         
         return view('management.patient.create', $data);
     }

@@ -1,4 +1,5 @@
 id;role_id;title;module_name;table_name;condition
-1;4;Rumah Sakit Admin 1;hospitals;hospital;id IN (1, 2, 3) AND disabled = 0
-2;5;Rumah Sakit Admin 2;hospitals;hospital;id IN (4, 5) AND disabled = 0
-3;6;Rumah Sakit Admin 3;hospitals;hospital;id IN (6, 7) AND disabled = 0
+1;4;Rumah Sakit Admin 1;hospitals;hospital;id IN (1) AND disabled = 0
+2;5;Rumah Sakit Admin 2;hospitals;hospital;id IN (2) AND disabled = 0
+3;6;Rumah Sakit Admin 3;hospitals;hospital;id IN (3, 4, 5, 6, 7) AND disabled = 0
+4;2;Dokter Daniel;hospitals;hospital;id IN (1, 2) AND disabled = 0

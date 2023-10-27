@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMstHospitalTable extends Migration
+class CreateMstVisitMethod extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMstHospitalTable extends Migration
      */
     public function up()
     {
-        Schema::create('mst_hospital', function (Blueprint $table) {
+        Schema::create('mst_visit_method', function (Blueprint $table) {
             $table->id();
             $table->string('code')->nullable();
             $table->string('name');
@@ -38,6 +38,6 @@ class CreateMstHospitalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mst_hospital');
+        Schema::dropIfExists('mst_visit_method');
     }
 }

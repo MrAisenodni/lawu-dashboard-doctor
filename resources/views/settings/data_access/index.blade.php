@@ -109,7 +109,11 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>{{ $c_menu->title }}</th>
+                <th>Peran</th>
+                <th>Judul</th>
+                <th>Nama Modul</th>
+                <th>Nama Tabel</th>
+                <th>Kondisi</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -118,7 +122,15 @@
                 @foreach ($data as $item)
                     <tr class="odd gradeX">
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td>{{ $item->name }}</td>
+                        <td>
+                            @if ($item->role)
+                                {{ $item->role->name }}
+                            @endif
+                        </td>
+                        <td>{{ $item->title }}</td>
+                        <td>{{ $item->module_name }}</td>
+                        <td>{{ $item->table_name }}</td>
+                        <td>{{ $item->condition }}</td>
                         <td class="text-center">
                             @if ($access->edit == 1)
                                 <a href="{{ $c_menu->url }}/{{ $item->id }}/edit" class="text-success"><i class="entypo-pencil"></i></a>

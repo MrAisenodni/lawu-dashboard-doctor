@@ -10,4 +10,9 @@ class DataAccess extends Model
     use HasFactory;
 
     protected $table = 'stg_data_access';
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id', 'id')->select('id', 'name')->where('disabled', 0);
+    }
 }

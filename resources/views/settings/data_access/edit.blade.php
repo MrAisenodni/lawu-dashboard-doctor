@@ -4,11 +4,13 @@
 
 @section('styles')
     <!-- Imported styles on this page -->
+	<link rel="stylesheet" href="{{ asset('/js/select2/select2-bootstrap.css') }}">
+	<link rel="stylesheet" href="{{ asset('/js/select2/select2.css') }}">
 @endsection
 
 @section('scripts')
     <!-- Imported scripts on this page -->
-	<script src="{{ asset('/js/bootstrap-colorpicker.min.js') }}"></script>
+    <script src="{{ asset('/js/select2/select2.min.js') }}"></script>
 @endsection
 
 @section('content')
@@ -48,14 +50,60 @@
                 
                 <div class="panel-body">
                     
-                    <form role="form" method="POST" action="{{ $c_menu->url }}/{{ $detail->id }}" class="form-horizontal form-groups-bordered">
+                    <form role="form" method="POST" action="{{ $c_menu->url }}" class="form-horizontal form-groups-bordered">
                         @csrf
-                        @method('PUT')
                         <div class="row form-group pt-0">
+                            <div class="col-lg-3 col-xs-12 mb-5">
+                                <label for="role" class="control-label">Peran</label>
+                                <select id="role" name="role" class="select2 @error('role') validate-has-error @enderror" data-allow-clear="true" data-placeholder="Pilih Peran">
+                                    <option></option>
+                                    @if ($roles)
+                                        @foreach ($roles as $item)
+                                            <option value="{{ $item->id }}" @if(old('role', $detail->role_id) == $item->id) selected @endif>{{ $item->name }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                                @error('role')
+                                    <span id="name-error" class="validate-has-error">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-lg-3 col-xs-12 mb-5">
+                                <label for="title" class="control-label">Judul</label>
+                                <input type="text" class="form-control @error('title') validate-has-error @enderror" id="title" name="title" value="{{ old('title', $detail->title) }}">
+                                @error('title')
+                                    <span id="name-error" class="validate-has-error">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-lg-3 col-xs-12 mb-5">
+                                <label for="module_name" class="control-label">Nama Modul</label>
+                                <input type="text" class="form-control @error('module_name') validate-has-error @enderror" id="module_name" name="module_name" value="{{ old('module_name', $detail->module_name) }}">
+                                @error('module_name')
+                                    <span id="name-error" class="validate-has-error">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-lg-3 col-xs-12 mb-5">
+                                <label for="table" class="control-label">Nama Tabel</label>
+                                <input type="text" class="form-control @error('table') validate-has-error @enderror" id="table" name="table" value="{{ old('table', $detail->table_name) }}">
+                                @error('table')
+                                    <span id="name-error" class="validate-has-error">{{ $message }}</span>
+                                @enderror
+                                {{-- <label for="table" class="control-label">Nama Tabel</label>
+                                <select id="table" name="table" class="select2 @error('table') validate-has-error @enderror" data-allow-clear="true" data-placeholder="Pilih Nama Tabel">
+                                    <option></option>
+                                    @if ($tables)
+                                        @foreach ($tables as $item)
+                                            <option value="{{ explode('create_', $item->migration)[1] }}" @if(old('table', $detail->table_name) == explode('create_', $item->migration)[1]) selected @endif>{{ explode('create_', $item->migration)[1] }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                                @error('table')
+                                    <span id="name-error" class="validate-has-error">{{ $message }}</span>
+                                @enderror --}}
+                            </div>
                             <div class="col-lg-12 col-xs-12 mb-5">
-                                <label for="name" class="control-label">{{ $c_menu->title }}</label>
-                                <input type="text" class="form-control @error('name') validate-has-error @enderror" id="name" name="name" value="{{ old('name', $detail->name) }}">
-                                @error('name')
+                                <label for="condition" class="control-label">Kondisi</label>
+                                <textarea id="condition" name="condition" class="form-control autogrow @error('condition') validate-has-error @enderror">{{ old('condition', $detail->condition) }}</textarea>
+                                @error('condition')
                                     <span id="name-error" class="validate-has-error">{{ $message }}</span>
                                 @enderror
                             </div>

@@ -25,6 +25,13 @@
                             Ubah Profil
                         </a>
                     </li>
+                    <!-- Logout sub-links -->
+                    <li>
+                        <a href="/logout">
+                            <i class="entypo-logout"></i>
+                            Keluar
+                        </a>
+                    </li>
                 </ul>
             </li>
 

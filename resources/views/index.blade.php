@@ -191,7 +191,7 @@
                                     <div class="col-sm-3 col-xs-12">
                                         <div class="tile-stats tile-red" style="background: {{ $action->background }}">
                                             <div class="icon"><i class="entypo-users"></i></div>
-                                            <h4 style="color: {{ $action->color }}">Total Pasien {{ $action->name }}</h4>
+                                            <h4 style="color: {{ $action->color }}">{{ $action->name }}</h4>
                                             <h2 class="fw-bold" style="color: {{ $action->color }}; margin-bottom: 5px; margin-top: 5px" data-start="0" 
                                                 data-end="@if ($data['hospital_' . $item->id]['action_' . $action->id]) 
                                                     {{ $data['hospital_' . $item->id]['action_' . $action->id] }} 
