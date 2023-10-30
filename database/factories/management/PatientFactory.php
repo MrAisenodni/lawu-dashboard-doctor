@@ -20,7 +20,7 @@ class PatientFactory extends Factory
             // Data Pasien
             'rm_no'             => $this->faker->randomNumber(6, true),
             'registration_no'   => $this->faker->randomNumber(9, true),
-            'registration_date' => $this->faker->date(),
+            'registration_date' => $this->faker->dateTimeThisYear(),
             'action_id'         => $this->faker->numberBetween(1, 3),
             'assurance_id'      => $this->faker->numberBetween(1, 3),
             'hospital_id'       => $this->faker->numberBetween(1, 7),

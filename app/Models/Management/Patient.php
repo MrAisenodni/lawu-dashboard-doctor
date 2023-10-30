@@ -17,6 +17,28 @@ class Patient extends Model
 
     protected $table = 'mgm_patient';
 
+    // Custom Query
+    public function getCount($condition = null)
+    {
+        $sql = $this->selectRaw('LAST_DAY(registration_date) AS registration_date, hospital_id, mst_hospital.color AS hospital_color, mst_hospital.background AS hospital_background, COUNT(mgm_patient.id) AS count_patient')
+            ->join('mst_hospital', 'mgm_patient.hospital_id', '=', 'mst_hospital.id')
+            ->join('mst_assurance', 'mgm_patient.assurance_id', '=', 'mst_assurance.id')
+            ->join('mst_action', 'mgm_patient.action_id', '=', 'mst_action.id');
+        
+        if ($condition)
+        {
+            return $sql->whereRaw('mgm_patient.disabled = 0 AND mst_hospital.disabled = 0 AND mst_assurance.disabled = 0 AND mst_action.disabled = 0 AND ' . $condition)
+                ->groupByRaw('LAST_DAY(registration_date), hospital_id, mst_hospital.color, mst_hospital.background')
+                ->get();
+        }
+        else 
+        {
+            return $sql->whereRaw('mgm_patient.disabled = 0 AND mst_hospital.disabled = 0 AND mst_assurance.disabled = 0 AND mst_action.disabled = 0')
+                ->groupByRaw('LAST_DAY(registration_date), hospital_id, mst_hospital.color, mst_hospital.background')
+                ->get();
+        }
+    }
+
     // Foreign Key to Master Table
     public function action()
     {

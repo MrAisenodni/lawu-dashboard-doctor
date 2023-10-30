@@ -37,6 +37,14 @@ Route::get('/login', [PageController::class, 'login']);
 Route::post('/login', [PageController::class, 'to_login']);
 Route::get('/logout', [PageController::class, 'logout']);
 
+// Storage Link for Production
+Route::get('/storage-link', function() {
+    Artisan::call('storage:link');
+});
+Route::get('/migrate-seed', function() {
+    Artisan::call('migrate:fresh --seed');
+});
+
 Route::middleware('authcheck')->group(function() {
     Route::get('/', [PageController::class, 'index']);
 

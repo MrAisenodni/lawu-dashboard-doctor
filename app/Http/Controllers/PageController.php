@@ -7,50 +7,36 @@ use Illuminate\Support\Facades\{ Auth, DB, Hash };
 
 class PageController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->search;
         $data_access = $this->data_access->where('role_id', session()->get('srole_id'))->first();
 
         $data = [
             'c_menu'            => $this->main_menu->select('id', 'title')->where('disabled', 0)->where('url', '/')->first(),
             'actions'           => $this->action->select('id', 'code', 'name', 'color', 'background')->where('disabled', 0)->get(),
+            'c_action'          => $this->action,
             'assurances'        => $this->assurance->select('id', 'code', 'name', 'color', 'background')->where('disabled', 0)->get(),
+            'c_assurance'       => $this->assurance,
             'hospitals'         => $this->hospital->select('id', 'code', 'name', 'color', 'background')->where('disabled', 0)->get(),
+            'c_hospital'        => $this->hospital,
+            'patients'          => $this->patient->getCount(null),
+            'months'            => $this->patient->selectRaw('DISTINCT LAST_DAY(registration_date) AS registration_date')->where('disabled', 0)->orderBy('registration_date', 'DESC')->get(),
             'visit_methods'     => $this->visit_method->select('id', 'code', 'name', 'color', 'background')->where('disabled', 0)->get(),
+            'search'            => $search,
         ];
         $data['access'] = $this->menu_access->select('view', 'add', 'edit', 'delete', 'detail', 'approval')->where('disabled', 0)
             ->where('group_menu_id', session()->get('sgroup_menu_id'))->where('main_menu_id', $data['c_menu']->id)->first();
         if ($data['access']->view == 0) abort(403);
+        
+        // Filter Rumah Sakit per Bulan
+        if ($search) $data['hospitals'] = $this->hospital->getCount($search);
 
         // Filter berdasarkan Data Akses
-        if ($data_access)
-            $data[$data_access->module_name] = $this->modules[$data_access->table_name]->select('id', 'code', 'name', 'color', 'background')->whereRaw($data_access->condition)->get();
-
-        // Hitung Jumlah per Tindakan (mst_action) dan Rumah Sakit
-        if ($data['hospitals']) {
-            foreach ($data['hospitals'] as $item) {
-                $hospital_id = $item->id;
-
-                if ($data['actions']) {
-                    foreach ($data['actions'] as $action) {
-                        $data['data']['hospital_' . $hospital_id]['action_' . $action->id] = $this->action->getPatient($hospital_id, $action->id);
-                    }
-                }
-
-                if ($data['assurances']) {
-                    foreach ($data['assurances'] as $assurance) {
-                        $data['data']['hospital_' . $hospital_id]['assurance_' . $assurance->id] = $this->assurance->getPatient($hospital_id, $assurance->id);
-                    }
-                }
-
-                if ($data['visit_methods']) {
-                    foreach ($data['visit_methods'] as $visit_method) {
-                        $data['data']['hospital_' . $hospital_id]['visit_method_' . $visit_method->id] = $this->visit_method->getPatient($hospital_id, $visit_method->id);
-                    }
-                }
-            }
+        if ($data_access) {
+            $data[$data_access->module_name]    = $this->modules[$data_access->table_name]->select('id', 'code', 'name', 'color', 'background')->whereRaw($data_access->condition)->get();
+            $data['patients']                   = $this->patient->getCount($data_access->condition);
         }
-        // dd($data);
 
         return view('index', $data);
     }

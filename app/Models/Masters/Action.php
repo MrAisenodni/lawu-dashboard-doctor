@@ -12,8 +12,21 @@ class Action extends Model
 
     protected $table = 'mst_action';
 
-    public function getPatient($hospital_id, $id)
+    // Count with Filter
+    public function getCount($id, $hospital_id, $search = null)
     {
-        return DB::table('mgm_patient')->where('disabled', 0)->where('hospital_id', $hospital_id)->where('action_id', $id)->count();
+        $sql = $this->selectRaw('mgm_patient.id')
+            ->join('mgm_patient', 'mgm_patient.action_id', '=', 'mst_action.id');
+
+        if ($search) {
+            return $sql->whereRaw("mgm_patient.disabled = 0 AND mst_action.disabled = 0 AND mst_action.id = '". $id ."' AND 
+                    mgm_patient.hospital_id = '". $hospital_id ."' AND YEAR(mgm_patient.registration_date) = LEFT('". $search ."', 4) 
+                    AND MONTH(mgm_patient.registration_date) = RIGHT('". $search ."', 2)"
+                )->count();
+        } else {
+            return $sql->whereRaw("mgm_patient.disabled = 0 AND mst_action.disabled = 0 AND mst_action.id = '". $id ."' AND 
+                    mgm_patient.hospital_id = '". $hospital_id ."'"
+                )->count();
+        }
     }
 }

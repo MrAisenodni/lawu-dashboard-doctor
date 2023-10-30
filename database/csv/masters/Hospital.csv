@@ -1,8 +1,8 @@
 code;name;background;color
-01;RS Pena 98;#000;#fff
-02;RS Cinta Kasih;#f0f;#fff
-03;RS Siti Khodijah Muhammadiyah Cabang Sepanjang;#ff0;#000
-04;RS Aisyiyah Bojonegoro;#000;#fff
-05;RSIA Muhammadiyah Malang;#0ff;#000
-06;RS Islam Aisyiyah Malang;#02f;#fff
-07;RSU Muhammadiyah Sumatera Utara;#000;#fff
+01;RS Pena 98;#000000;#ffffff
+02;RS Cinta Kasih;#f0ff0f;#000000
+03;RS Siti Khodijah Muhammadiyah Cabang Sepanjang;#ff91ff;#000000
+04;RS Aisyiyah Bojonegoro;#000000;#ffffff
+05;RSIA Muhammadiyah Malang;#0fffff;#000000
+06;RS Islam Aisyiyah Malang;#02f00f;#000000
+07;RSU Muhammadiyah Sumatera Utara;#000fff;#ffffff

@@ -4,93 +4,34 @@
 
 @section('styles')
     <!-- Imported styles on this page -->
-    <link rel="stylesheet" href="{{ asset('/js/jvectormap/jquery-jvectormap-1.2.2.css') }}">
-    <link rel="stylesheet" href="{{ asset('/js/rickshaw/rickshaw.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('/js/select2/select2-bootstrap.css') }}">
+	<link rel="stylesheet" href="{{ asset('/js/select2/select2.css') }}">
+
+    {{-- ApexChart --}}
+    <link href="{{ asset('/js/simplebar/css/simplebar.css') }}" rel="stylesheet" />
 @endsection
 
 @section('scripts')
     <!-- Imported scripts on this page -->
-	<script src="{{ asset('/js/jvectormap/jquery-jvectormap-europe-merc-en.js') }}"></script>
-	<script src="{{ asset('/js/jquery.sparkline.min.js') }}"></script>
-	<script src="{{ asset('/js/rickshaw/vendor/d3.v3.js') }}"></script>
-	<script src="{{ asset('/js/rickshaw/rickshaw.min.js') }}"></script>
+    <script src="{{ asset('/js/select2/select2.min.js') }}"></script>
+
+    {{-- ApexChart --}}
+    <script src="{{ asset('/js/apexcharts-bundle/js/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('/js/simplebar/js/simplebar.min.js') }}"></script>
+
+    {{-- Morris --}}
 	<script src="{{ asset('/js/raphael-min.js') }}"></script>
 	<script src="{{ asset('/js/morris.min.js') }}"></script>
-	<script src="{{ asset('/js/toastr.js') }}"></script>
-	<script src="{{ asset('/js/neon-chat.js') }}"></script>
     
-    {{-- 
-    Morris.Bar({
-        element: 'chart3',
-        axes: true,
-        data: [
-            {x: '2013 Q1', y: getRandomInt(1,10), z: getRandomInt(1,10), a: getRandomInt(1,10)},
-            {x: '2013 Q2', y: getRandomInt(1,10), z: getRandomInt(1,10), a: getRandomInt(1,10)},
-            {x: '2013 Q3', y: getRandomInt(1,10), z: getRandomInt(1,10), a: getRandomInt(1,10)},
-            {x: '2013 Q4', y: getRandomInt(1,10), z: getRandomInt(1,10), a: getRandomInt(1,10)}
-        ],
-        xkey: 'x',
-        ykeys: ['y', 'z', 'a'],
-        labels: ['Facebook', 'LinkedIn', 'Google+'],
-        barColors: ['#707f9b', '#455064', '#242d3c'],
-        barColors: function (row, series, type) {
-            console.log("--> "+row.label, series, type);
-            if(row.label == "Person A") return "#AD1D28";
-            else if(row.label == "Person B") return "#DEBB27";
-            else if(row.label == "Person C") return "#fec04c";
-            else if(row.label == "Person D") return "#1AB244";
-        }
-    });
-     --}}
     @php
-        $script = '<script type="text/javascript">';
-        $script .= "jQuery(document).ready(function($) { Morris.Bar({ element: 'chart3', axes: true, data: [ ";
         $count = $hospitals->count();
 
-        // Hitung Total Pasien per Tahun
-        if ($hospitals) {
-            $i = 1;
-            foreach ($hospitals as $item) {
-                $script .= "{x: '". $item->name ."', y: ". $item->patients->count() ."}, ";
-                $i++;
-            }
-        }
-        $script .= "], ";
-        $script .= "xkey: 'x', ykeys: ['y'], labels: ['Total Pasien'], stacked: true, xLabelAngle: '10', gridTextSize: 10, resize: 'true', barColors: function (row, series, type) { ";
-
-        // Hitung Total Pasien per Rumah Sakit
-        // $script .= "xkey: 'y', ykeys: [";
-        if ($hospitals) {
-            $i = 1;
-            foreach ($hospitals as $item) {
-                $script .= "if (row.label == '". $item->name ."') return '". $item->background ."';";
-                // if ($i < $count) $script .= ', ';
-                $i++;
-            }
-        }
-        $script .= "} }) }) </script>";
-        // $script .= "], labels: [";
-        // if ($hospitals) {
-        //     $i = 1;
-        //     foreach ($hospitals as $item) {
-        //         $script .= '"' . $item->name . '"';
-        //         if ($i < $count) $script .= ', ';
-        //         $i++;
-        //     }
-        // }
-        // $script .= "], redraw: true });";
-        // $script .= "line_chart_demo.parent().attr('style', ''); console.log(line_chart_demo) }); </script>";
-
-        echo $script;
-    @endphp
-
-    @php
         $script = '<script type="text/javascript">jQuery(document).ready(function($) { var donut_chart_demo = $("#donut-chart-demo"); donut_chart_demo.parent().show();';
         $script .= "var donut_chart = Morris.Donut({ element: 'donut-chart-demo', data: [";
         if ($hospitals) {
             $i = 1;
             foreach ($hospitals as $item) {
-                $script .= "{label: '". $item->name ."', value: ". $item->patients->count() ."}, ";
+                $script .= "{label: '". $item->name ."', value: ". $c_hospital->getCount($item->id, $search) ."}, ";
                 $i++;
             }
         }
@@ -106,7 +47,110 @@
         $script .= "] }); donut_chart_demo.parent().attr('style', ''); }); </script>";
         echo $script;
     @endphp
+
     <script type="text/javascript">
+        $(function() {
+            "use strict";
+            var hospital = {!! json_encode($hospitals->toArray()) !!}
+            var patient = {!! json_encode($patients->toArray()) !!}
+
+            const monthNames = ["Jan", "Feb", "Mar", "Apr",
+                                "May", "Jun", "Jul", "Aug",
+                                "Sep", "Oct", "Nov", "Dec"
+                            ];
+            const data = []
+            const color = []
+
+            if (hospital) {
+                for (let i = 0; i < hospital.length; i++) {
+                    var title = hospital[i].name
+                    const data_patient = []
+
+                    if (patient) {
+                        for (let a = 0; a < patient.length; a++) {
+                            if (patient[a].hospital_id == hospital[i].id) {
+                                const year = new Date(patient[a].registration_date)
+                                const month = new Date(patient[a].registration_date)
+
+                                data_patient.push({
+                                    x: monthNames[month.getMonth()] + '-' + year.getFullYear(),
+                                    y: patient[a].count_patient,
+                                })
+                            }
+                            else {
+                                false
+                            }
+                        }
+                    }
+
+                    data.push({
+                        name: title,
+                        data: data_patient,
+                    })
+                    color.push(hospital[i].background)
+                }
+            }
+
+            var options = {
+                series: data,
+                    chart: {
+                    type: 'bar',
+                    height: 300,
+                },
+                xaxis: {
+                    labels: {
+                        rotate: -45,
+                        rotateAlways: true,
+                        show: true,
+                        style: {
+                            colors: ['#000'],
+                            fontSize: '9px',
+                        }
+                    },
+                },
+                plotOptions: {
+                    bar: {
+                        dataLabels: {
+                            position: 'top',
+                        },
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    offsetY: -20,
+                    offsetX: 0,
+                    style: {
+                        fontSize: '9px',
+                        colors: ['#000'],
+                    }
+                },
+                stroke: {
+                    show: true,
+                    width: 1,
+                    colors: ['#000']
+                },
+                tooltip: {
+                    shared: true,
+                    intersect: false,
+                    followCursor: true,
+                },
+                fill: {
+                    colors: color,
+                },
+                legend: {
+                    position: 'top',
+                    show: true,
+                    showForSingleSeries: true,
+                    customLegendItems: ['p1', 'p2', 'p3'],
+                    markers: {
+                        fillColors: color
+                    }
+                }
+            }
+                
+            var chart = new ApexCharts(document.querySelector("#chart-group"), options);
+            chart.render();
+        })
         // jQuery(document).ready(function($)
         // {        
         //     // Donut Chart
@@ -136,6 +180,29 @@
 @endsection
 
 @section('content')
+    <div class="row" style="align-content: center">
+        <div class="col-lg-12 col-xs-12">
+            <form class="g-3" action="{{ $c_menu->url }}" method="GET">
+                @method('get')
+                @csrf
+                <div class="row mb-2">
+                    <div class="col-lg-5 col-xs-5" style="padding-right: 0">
+                        <select class="select2 @error('search') validate-has-error @enderror" id="search" name="search">
+                            <option value="" @if (old('search', $search)) selected @endif>SEMUA</option>
+                            @if ($months)
+                                @foreach ($months as $item)
+                                    <option value="{{ date('Y-m', strtotime($item->registration_date)) }}" @if (date('Y-m', strtotime($item->registration_date)) == old('search', $search)) selected @endif>{{ date('M-Y', strtotime($item->registration_date)) }}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </div>
+                    <div class="col-lg-1 col-xs-1" style="padding-left: 5px">
+                        <button class="btn btn-success" type="submit"><i class="entypo-search text-white"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
     @if ($hospitals)
         @foreach ($hospitals as $item)
@@ -152,34 +219,24 @@
                             <div class="tile-stats tile-red" style="background: {{ $item->background }}">
                                 <div class="icon"><i class="entypo-users"></i></div>
                                 <h4 style="color: {{ $item->color }}">Total Pasien</h4>
-                                <h2 class="fw-bold" style="color: {{ $item->color }}; margin-bottom: 5px; margin-top: 5px" data-start="0" data-end="
-                                    @if ($item->patients)
-                                        {{ $item->patients->count() }} 
-                                    @endif" data-postfix="" data-duration="1000" data-delay="0"
+                                <h2 class="fw-bold" style="color: {{ $item->color }}; margin-bottom: 5px; margin-top: 5px" data-start="0" 
+                                    data-end="{{ $c_hospital->getCount($item->id, $search) }}" data-postfix="" data-duration="1000" data-delay="0"
                                 >
-                                    @if ($item->patients) 
-                                        {{ $item->patients->count() }} 
-                                    @endif
+                                    {{ $c_hospital->getCount($item->id, $search) }}
                                 </h2>
 
                                 @if ($assurances)
                                     @foreach ($assurances as $assurance)
-                                        @if ($data['hospital_' . $item->id])
-                                            <div class="row" style="margin-left: 0.5px; margin-right: 0.5px">
-                                                <div class="tile-stats col-sm-12 col-xs-12" style="background: {{ $assurance->background }}; padding: 10px">
-                                                    <h4 style="color: {{ $assurance->color }}; margin-top: 0px; margin-bottom: 0px">Pasien {{ $assurance->name }}</h4>
-                                                    <h2 class="fw-bold" style="color: {{ $assurance->color }}; margin-top: 0px; margin-bottom: 0px" 
-                                                        data-start="0" data-end="@if ($data['hospital_' . $item->id]['assurance_' . $assurance->id]) 
-                                                            {{ $data['hospital_' . $item->id]['assurance_' . $assurance->id] }} 
-                                                        @endif" data-postfix="" data-duration="1000" data-delay="0"
-                                                    >
-                                                        @if ($data['hospital_' . $item->id]['assurance_' . $assurance->id]) 
-                                                            {{ $data['hospital_' . $item->id]['assurance_' . $assurance->id] }} 
-                                                        @endif
-                                                    </h2>
-                                                </div>
+                                        <div class="row" style="margin-left: 0.5px; margin-right: 0.5px">
+                                            <div class="tile-stats col-sm-12 col-xs-12" style="background: {{ $assurance->background }}; padding: 10px">
+                                                <h4 style="color: {{ $assurance->color }}; margin-top: 0px; margin-bottom: 0px">Pasien {{ $assurance->name }}</h4>
+                                                <h2 class="fw-bold" style="color: {{ $assurance->color }}; margin-top: 0px; margin-bottom: 0px" 
+                                                    data-start="0" data-end="{{ $c_assurance->getCount($assurance->id, $item->id, $search) }}" data-postfix="" data-duration="1000" data-delay="0"
+                                                >
+                                                    {{ $c_assurance->getCount($assurance->id, $item->id, $search) }}
+                                                </h2>
                                             </div>
-                                        @endif
+                                        </div>
                                     @endforeach
                                 @endif
                             </div>
@@ -187,23 +244,17 @@
 
                         @if ($actions)
                             @foreach ($actions as $action)
-                                @if ($data['hospital_' . $item->id])
-                                    <div class="col-sm-3 col-xs-12">
-                                        <div class="tile-stats tile-red" style="background: {{ $action->background }}">
-                                            <div class="icon"><i class="entypo-users"></i></div>
-                                            <h4 style="color: {{ $action->color }}">{{ $action->name }}</h4>
-                                            <h2 class="fw-bold" style="color: {{ $action->color }}; margin-bottom: 5px; margin-top: 5px" data-start="0" 
-                                                data-end="@if ($data['hospital_' . $item->id]['action_' . $action->id]) 
-                                                    {{ $data['hospital_' . $item->id]['action_' . $action->id] }} 
-                                                @endif" data-postfix="" data-duration="1000" data-delay="0"
-                                            >
-                                                @if ($data['hospital_' . $item->id]['action_' . $action->id]) 
-                                                    {{ $data['hospital_' . $item->id]['action_' . $action->id] }} 
-                                                @endif
-                                            </h2>
-                                        </div>
+                                <div class="col-sm-3 col-xs-12">
+                                    <div class="tile-stats tile-red" style="background: {{ $action->background }}">
+                                        <div class="icon"><i class="entypo-users"></i></div>
+                                        <h4 style="color: {{ $action->color }}">{{ $action->name }}</h4>
+                                        <h2 class="fw-bold" style="color: {{ $action->color }}; margin-bottom: 5px; margin-top: 5px" data-start="0" 
+                                            data-end="{{ $c_action->getCount($action->id, $item->id, $search) }}" data-postfix="" data-duration="1000" data-delay="0"
+                                        >
+                                            {{ $c_action->getCount($action->id, $item->id, $search) }}
+                                        </h2>
                                     </div>
-                                @endif
+                                </div>
                             @endforeach
                         @endif
 
@@ -239,7 +290,8 @@
                 <div class="panel-body">
                     <div class="tab-content">
                         <div class="tab-pane active" id="line-chart">
-                            <div id="chart3" style="height: 300px"></div>
+                            <div id="legend" class="chart-legend mt-0 mb-24pt justify-content-start"></div>
+                            <div id="chart-group" style="height: 350px;"></div>
                         </div>
                     </div>
                 </div>
@@ -250,12 +302,12 @@
         <div class="col-lg-6 col-xs-12">
             <div class="panel panel-primary" id="charts_env">
                 <div class="panel-heading">
-                    <div class="panel-title">Monitoring Pasien</div>
+                    <div class="panel-title">Monitoring Pasien @if ($search) <span class="text-danger fw-bold">{{ date('M-Y', strtotime($search)) }}</span> @else <span class="text-danger fw-bold">Semua Tanggal</span> @endif</div>
                 </div>
                 <div class="panel-body">
                     <div class="tab-content">
                         <div class="tab-pane active" id="pie-chart">
-                            <div id="donut-chart-demo" class="morrischart" style="height: 300px;"></div>
+                            <div id="donut-chart-demo" class="morrischart" style="height: 350px;"></div>
                         </div>
                     </div>
                 </div>
