@@ -3,7 +3,7 @@
     <!-- logo -->
     <div class="logo">
         <a href="/">
-            <img src="{{ asset($provider->provider_picture) }}" width="200" alt="" />
+            <img src="{{ asset('/storage/'.$provider->provider_picture) }}" width="200" alt="" />
         </a>
     </div>
 

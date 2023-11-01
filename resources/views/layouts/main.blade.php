@@ -8,7 +8,7 @@
         <meta name="description" content="Neon Admin Panel" />
         <meta name="author" content="" />
 
-        <link rel="icon" href="{{ asset($provider->provider_logo) }}">
+        <link rel="icon" href="{{ asset('/storage/'.$provider->provider_logo) }}">
 
         <title>@yield('title') | {{ $provider->provider_name }}</title>
 
