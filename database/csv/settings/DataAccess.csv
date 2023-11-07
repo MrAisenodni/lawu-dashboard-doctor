@@ -3,3 +3,7 @@ id;role_id;title;module_name;table_name;condition
 2;5;Rumah Sakit Admin 2;hospitals;hospital;mst_hospital.id IN (2) AND mst_hospital.disabled = 0
 3;6;Rumah Sakit Admin 3;hospitals;hospital;mst_hospital.id IN (3, 4, 5, 6, 7) AND mst_hospital.disabled = 0
 4;2;Dokter Daniel;hospitals;hospital;mst_hospital.id IN (1, 2) AND mst_hospital.disabled = 0
+5;4;Rumah Sakit Admin 1;patients;patient;hospital_id IN (1)
+6;5;Rumah Sakit Admin 2;patients;patient;hospital_id IN (2)
+7;6;Rumah Sakit Admin 3;patients;patient;hospital_id IN (3, 4, 5, 6, 7)
+8;2;Dokter Daniel;patients;patient;hospital_id IN (1, 2)

@@ -12,7 +12,7 @@ class PatientController extends Controller
 
     public function index()
     {
-        $data_access = $this->data_access->where('role_id', session()->get('srole_id'))->first();
+        $data_access = $this->data_access->where('role_id', session()->get('srole_id'))->where('module_name', 'patients')->first();
 
         $data = [
             'c_menu'            => $this->menu->select('id', 'title', 'url', 'main_menu_id')->where('disabled', 0)->where('url', $this->path)->first(),
@@ -24,14 +24,14 @@ class PatientController extends Controller
 
         // Filter berdasarkan Data Akses
         if ($data_access)
-            $data['data'] = $this->patient->whereRaw('hospital_' . $data_access->condition)->get();
+            $data['data'] = $this->patient->whereRaw($data_access->condition)->get();
 
         return view('management.patient.index', $data);
     }
 
     public function create()
     {
-        $data_access = $this->data_access->where('role_id', session()->get('srole_id'))->first();
+        $data_access = $this->data_access->where('role_id', session()->get('srole_id'))->where('module_name', 'hospitals')->first();
 
         $data = [
             'c_menu'            => $this->menu->select('id', 'title', 'url', 'main_menu_id')->where('disabled', 0)->where('url', $this->path)->first(),

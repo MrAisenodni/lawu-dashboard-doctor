@@ -23,7 +23,7 @@ class CreateStgUser extends Migration
             $table->string('address_3', 3)->nullable();
             $table->unsignedInteger('religion_id')->nullable();     // Join ke Tabel mst_religion
             $table->unsignedInteger('role_id')->nullable();         // Join ke Tabel stg_role
-            $table->unsignedInteger('group_menu_id')->nullable();         // Join ke Tabel stg_group_menu
+            $table->unsignedInteger('group_menu_id')->nullable();   // Join ke Tabel stg_group_menu
 
             // Photo Profile
             $table->text('picture')->nullable();
