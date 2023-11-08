@@ -16,6 +16,7 @@ use App\Http\Controllers\Settings\{
     DataAccessController,
     GroupMenuController,
     MenuAccessController,
+    ProfileController,
     ProviderController,
     RoleController,
     UserController,
@@ -64,6 +65,7 @@ Route::middleware('authcheck')->group(function() {
     Route::resource('/setting/data-access', DataAccessController::class);
     Route::resource('/setting/group-menu', GroupMenuController::class);
     Route::resource('/setting/menu-access', MenuAccessController::class);
+    Route::resource('/profil', ProfileController::class);
     Route::resource('/setting/provider', ProviderController::class);
     Route::resource('/setting/role', RoleController::class);
     Route::resource('/setting/user', UserController::class);
